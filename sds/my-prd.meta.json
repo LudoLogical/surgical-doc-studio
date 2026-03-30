@@ -1,7 +1,7 @@
 {
   "slug": "my-prd",
   "branch": "main",
-  "exportedAt": "2026-03-30T19:03:46.111Z",
+  "exportedAt": "2026-03-30T19:04:02.440Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "9e625818-b982-4a9d-aac3-d83f63734f41",
@@ -26,14 +26,16 @@
       "kind": "header",
       "text": "# The Mysterious Adventures of Curious George",
       "verified": true,
-      "verifiedAt": "2026-03-30T19:03:44.367Z",
+      "verifiedAt": "2026-03-30T19:04:00.030Z",
       "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "9caab7dc-4a3b-427d-8167-6accb2c59f5b",
       "kind": "header",
       "text": "## The Little Monkey's Adventure",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-30T19:04:00.030Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "296529be-217a-4b1f-9d9d-fc25520c7114",
