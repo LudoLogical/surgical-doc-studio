@@ -1,569 +1,89 @@
 {
   "version": 1,
   "slug": "shauryatest1",
-  "updatedAt": "2026-03-30T14:40:00.147Z",
+  "updatedAt": "2026-03-30T14:43:00.234Z",
   "branch": "main",
   "blocks": [
     {
-      "id": "99a12063-a774-444d-b320-70cf151f850e",
+      "id": "5f3241bd-b1b4-4aa2-9869-f23d917d9878",
       "kind": "header",
-      "text": "# Authentication System: JWT Token Management Module",
+      "text": "# The Midnight Deploy",
       "verified": true,
-      "verifiedAt": "2026-03-30T14:39:24.098Z",
+      "verifiedAt": "2026-03-30T14:43:00.234Z",
       "verifiedBy": "cameronjaede-coder"
     },
     {
-      "id": "29018676-3332-4e17-943b-3793891e87a7",
-      "kind": "header",
-      "text": "## Summary",
-      "verified": false
-    },
-    {
-      "id": "23396dd4-6f4d-4a5c-8317-e1d1ccb59ae8",
+      "id": "b5937f67-f4e3-484a-9e66-a043f8668cd1",
       "kind": "paragraph",
-      "text": "This document details the implementation of a JWT (JSON Web Token) management module for a web application's authentication system. This module handles token generation, validation, refresh, and revocation operations.",
+      "text": "Arjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 3:47 AM. In San Francisco, his co-founders were just finishing lunch.",
       "verified": false
     },
     {
-      "id": "08f4c23f-c7c0-4300-b810-9949d819fce7",
-      "kind": "header",
-      "text": "## Technical Specifications",
-      "verified": false
-    },
-    {
-      "id": "efd05c30-c2f5-4759-ba30-4fed9c2ef3b5",
-      "kind": "header",
-      "text": "### Technology Stack",
-      "verified": false
-    },
-    {
-      "id": "f24c561d-e7c9-49f5-9812-94d4656990b4",
-      "kind": "list",
-      "text": "- **Language**: Node.js (TypeScript)\n- **JWT Library**: jsonwebtoken\n- **Storage**: Redis (for token blacklist/refresh tokens)\n- **Hashing**: bcrypt\n- **Framework**: Express.js compatible",
-      "verified": false
-    },
-    {
-      "id": "291c513e-b76e-422c-94b7-f4ae1560483a",
-      "kind": "header",
-      "text": "### Security Requirements",
-      "verified": false
-    },
-    {
-      "id": "ba1e067c-b3ce-4c9d-96e8-c5ff9b3e18c0",
-      "kind": "list",
-      "text": "- Access tokens expire after 15 minutes\n- Refresh tokens expire after 7 days\n- Tokens must include user ID, roles, and issued timestamp\n- Revoked tokens must be blacklisted\n- Token secrets must be environment-based",
-      "verified": false
-    },
-    {
-      "id": "66728633-2415-4eb6-8499-bdd8343861c2",
-      "kind": "header",
-      "text": "## Implementation",
-      "verified": false
-    },
-    {
-      "id": "eeb6d1ec-baf9-469e-8482-37d02b099921",
+      "id": "4680cad3-3192-4b56-bc6c-aaa04e96ec3f",
       "kind": "paragraph",
-      "text": "```typescript\n// token-manager.ts",
+      "text": "\"Deploy looks good,\" Sarah messaged. \"Great work on the API fix.\"",
       "verified": false
     },
     {
-      "id": "b356117e-ab41-4cf8-93aa-ad4da76777dc",
+      "id": "9f3bfece-2d86-4264-8e22-3dbbf2d27f40",
       "kind": "paragraph",
-      "text": "import jwt from 'jsonwebtoken';\nimport { Redis } from 'ioredis';\nimport crypto from 'crypto';",
+      "text": "He smiled, exhaustion forgotten. Six months ago, he'd been a college freshman juggling thermodynamics lectures and late-night coding sessions. Now he was employee #4 at a Y Combinator startup, building infrastructure that served fifty thousand users.",
       "verified": false
     },
     {
-      "id": "1e3dc1cc-43da-4317-b0ca-b36120284146",
+      "id": "89ad7504-efd3-4aac-afae-4471acdd2ed9",
       "kind": "paragraph",
-      "text": "interface TokenPayload {\n  userId: string;\n  email: string;\n  roles: string[];\n  tokenType: 'access' | 'refresh';\n}",
+      "text": "His mother knocked softly. \"Still working?\"",
       "verified": false
     },
     {
-      "id": "c7a66dbf-c820-411c-87a8-f74895985fca",
+      "id": "5a1e88a3-7fa6-4469-9eca-b100f257d5f1",
       "kind": "paragraph",
-      "text": "interface TokenPair {\n  accessToken: string;\n  refreshToken: string;\n  expiresIn: number;\n}",
+      "text": "\"Almost done, Amma.\"",
       "verified": false
     },
     {
-      "id": "21a93f72-9963-40d1-818c-d8139e1ca6a3",
+      "id": "d115f0bf-baec-4001-9fd0-4e759b4bca87",
       "kind": "paragraph",
-      "text": "interface DecodedToken extends TokenPayload {\n  iat: number;\n  exp: number;\n  jti: string;\n}",
+      "text": "She set down chai, fragrant with cardamom. \"Don't forget—you're still eighteen.\"",
       "verified": false
     },
     {
-      "id": "6d50bfd3-1725-4470-af82-c2adee02078b",
+      "id": "11b9b3e4-c252-4800-9c77-dc6a5f692e02",
       "kind": "paragraph",
-      "text": "export class TokenManager {\n  private readonly ACCESS_TOKEN_SECRET: string;\n  private readonly REFRESH_TOKEN_SECRET: string;\n  private readonly ACCESS_TOKEN_EXPIRY = '15m';\n  private readonly REFRESH_TOKEN_EXPIRY = '7d';\n  private readonly REFRESH_TOKEN_EXPIRY_SECONDS = 7 * 24 * 60 * 60;\n  private redisClient: Redis;",
+      "text": "Arjun refreshed the monitoring dashboard. Error rates dropping. Response times optimal. Somewhere in Missouri, a teacher was using their platform to plan tomorrow's lesson. In Brazil, a student was taking a practice exam.",
       "verified": false
     },
     {
-      "id": "6bf1dc9e-4fd5-4a49-80db-fd64897f9c00",
-      "kind": "list",
-      "text": "  constructor(redisClient: Redis) {\n    this.ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || '';\n    this.REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || '';",
-      "verified": false
-    },
-    {
-      "id": "58a62b88-fbc7-404a-9788-99d1b044706b",
-      "kind": "list",
-      "text": "    if (!this.ACCESS_TOKEN_SECRET || !this.REFRESH_TOKEN_SECRET) {\n      throw new Error('Token secrets must be defined in environment variables');\n    }",
-      "verified": false
-    },
-    {
-      "id": "0d226cf9-f80b-490e-9c98-b92e1c4b5b34",
-      "kind": "list",
-      "text": "    this.redisClient = redisClient;\n  }",
-      "verified": false
-    },
-    {
-      "id": "106dc627-be1d-4fdb-a046-e14c3b841e9e",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "d5e38aab-85f9-4c41-b5df-51983bf32e78",
-      "kind": "list",
-      "text": "   * Generates a unique JWT ID for token tracking\n   */\n  private generateJti(): string {\n    return crypto.randomBytes(16).toString('hex');\n  }",
-      "verified": false
-    },
-    {
-      "id": "f1eff983-d1ae-458e-b185-b4717d71adb9",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "e250d019-03e1-443e-bced-ff1de4e9143e",
-      "kind": "list",
-      "text": "   * Creates both access and refresh tokens for a user\n   */\n  public async generateTokenPair(\n    userId: string,\n    email: string,\n    roles: string[]\n  ): Promise<TokenPair> {\n    const accessTokenJti = this.generateJti();\n    const refreshTokenJti = this.generateJti();",
-      "verified": false
-    },
-    {
-      "id": "d31d1cef-9d3c-4cd9-8db9-1704f19141b8",
-      "kind": "list",
-      "text": "    const accessTokenPayload: TokenPayload & { jti: string } = {\n      userId,\n      email,\n      roles,\n      tokenType: 'access',\n      jti: accessTokenJti,\n    };",
-      "verified": false
-    },
-    {
-      "id": "3e139ca0-e695-48bd-b83f-b6d0ed6bdc0b",
-      "kind": "list",
-      "text": "    const refreshTokenPayload: TokenPayload & { jti: string } = {\n      userId,\n      email,\n      roles,\n      tokenType: 'refresh',\n      jti: refreshTokenJti,\n    };",
-      "verified": false
-    },
-    {
-      "id": "1f810b9c-4eb9-43d8-9090-e087897ba7cc",
-      "kind": "list",
-      "text": "    const accessToken = jwt.sign(\n      accessTokenPayload,\n      this.ACCESS_TOKEN_SECRET,\n      { expiresIn: this.ACCESS_TOKEN_EXPIRY }\n    );",
-      "verified": false
-    },
-    {
-      "id": "6d1e9d64-07df-4b06-82c9-eac8ced3f76a",
-      "kind": "list",
-      "text": "    const refreshToken = jwt.sign(\n      refreshTokenPayload,\n      this.REFRESH_TOKEN_SECRET,\n      { expiresIn: this.REFRESH_TOKEN_EXPIRY }\n    );",
-      "verified": false
-    },
-    {
-      "id": "cc09a08e-a73d-4f84-bfc4-af5321b4729d",
-      "kind": "list",
-      "text": "    // Store refresh token JTI in Redis for validation\n    await this.storeRefreshToken(userId, refreshTokenJti);",
-      "verified": false
-    },
-    {
-      "id": "feda818c-0d9a-4d19-b2e4-42d8ec53e48e",
-      "kind": "list",
-      "text": "    return {\n      accessToken,\n      refreshToken,\n      expiresIn: 15 * 60, // 15 minutes in seconds\n    };\n  }",
-      "verified": false
-    },
-    {
-      "id": "8fd76281-2def-4467-b12a-c5ad14e0028c",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "9b4a4b5d-4e51-4c3e-9e4d-417bef9406aa",
-      "kind": "list",
-      "text": "   * Stores refresh token identifier in Redis\n   */\n  private async storeRefreshToken(\n    userId: string,\n    jti: string\n  ): Promise<void> {\n    const key = `refresh_token:${userId}:${jti}`;\n    await this.redisClient.setex(\n      key,\n      this.REFRESH_TOKEN_EXPIRY_SECONDS,\n      'valid'\n    );\n  }",
-      "verified": false
-    },
-    {
-      "id": "ada5b5ac-4ea9-4202-afa5-2043245631e0",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "65115d46-d6e6-4258-b44d-0adb3b20c061",
-      "kind": "list",
-      "text": "   * Validates and decodes an access token\n   */\n  public async validateAccessToken(token: string): Promise<DecodedToken> {\n    try {\n      const decoded = jwt.verify(\n        token,\n        this.ACCESS_TOKEN_SECRET\n      ) as DecodedToken;",
-      "verified": false
-    },
-    {
-      "id": "84c69eff-39d3-460e-8bf5-b42b79b47120",
-      "kind": "list",
-      "text": "      if (decoded.tokenType !== 'access') {\n        throw new Error('Invalid token type');\n      }",
-      "verified": false
-    },
-    {
-      "id": "d1526e5f-075f-4d68-92dc-04f779833c5d",
-      "kind": "list",
-      "text": "      // Check if token is blacklisted\n      const isBlacklisted = await this.isTokenBlacklisted(decoded.jti);\n      if (isBlacklisted) {\n        throw new Error('Token has been revoked');\n      }",
-      "verified": false
-    },
-    {
-      "id": "c45a4e24-e482-4d56-a3a2-4e17d1da0f31",
-      "kind": "list",
-      "text": "      return decoded;\n    } catch (error) {\n      if (error instanceof jwt.TokenExpiredError) {\n        throw new Error('Access token has expired');\n      }\n      if (error instanceof jwt.JsonWebTokenError) {\n        throw new Error('Invalid access token');\n      }\n      throw error;\n    }\n  }",
-      "verified": false
-    },
-    {
-      "id": "67f3f1bd-bb89-4115-bedb-73a0ab7a7afb",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "f8b4f32d-5bb1-4663-b56f-3d6d506002fa",
-      "kind": "list",
-      "text": "   * Validates a refresh token\n   */\n  public async validateRefreshToken(token: string): Promise<DecodedToken> {\n    try {\n      const decoded = jwt.verify(\n        token,\n        this.REFRESH_TOKEN_SECRET\n      ) as DecodedToken;",
-      "verified": false
-    },
-    {
-      "id": "8b3657ff-e07a-43ac-8b3b-45ee95f3188d",
-      "kind": "list",
-      "text": "      if (decoded.tokenType !== 'refresh') {\n        throw new Error('Invalid token type');\n      }",
-      "verified": false
-    },
-    {
-      "id": "c989e0f0-5c23-425d-9758-393a629b1da6",
-      "kind": "list",
-      "text": "      // Check if refresh token exists in Redis\n      const key = `refresh_token:${decoded.userId}:${decoded.jti}`;\n      const exists = await this.redisClient.exists(key);",
-      "verified": false
-    },
-    {
-      "id": "6de8a992-f46a-4e65-b04f-d8767ef3f130",
-      "kind": "list",
-      "text": "      if (!exists) {\n        throw new Error('Refresh token not found or expired');\n      }",
-      "verified": false
-    },
-    {
-      "id": "1c722210-0356-4288-9c21-37303059b489",
-      "kind": "list",
-      "text": "      // Check if token is blacklisted\n      const isBlacklisted = await this.isTokenBlacklisted(decoded.jti);\n      if (isBlacklisted) {\n        throw new Error('Token has been revoked');\n      }",
-      "verified": false
-    },
-    {
-      "id": "d64966f5-84b8-4819-97ec-34ac9dbdcf76",
-      "kind": "list",
-      "text": "      return decoded;\n    } catch (error) {\n      if (error instanceof jwt.TokenExpiredError) {\n        throw new Error('Refresh token has expired');\n      }\n      if (error instanceof jwt.JsonWebTokenError) {\n        throw new Error('Invalid refresh token');\n      }\n      throw error;\n    }\n  }",
-      "verified": false
-    },
-    {
-      "id": "dc7a7afb-e562-4034-8af3-4ac25b06a670",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "952873c3-316c-4da7-9309-7d29d01ed4cf",
-      "kind": "list",
-      "text": "   * Refreshes an access token using a valid refresh token\n   */\n  public async refreshAccessToken(refreshToken: string): Promise<TokenPair> {\n    const decoded = await this.validateRefreshToken(refreshToken);",
-      "verified": false
-    },
-    {
-      "id": "22772750-fc04-4a70-9b44-4384c8ec2145",
-      "kind": "list",
-      "text": "    // Revoke the old refresh token\n    await this.revokeToken(decoded.jti);",
-      "verified": false
-    },
-    {
-      "id": "8c435f08-6e41-4ded-92e7-cfaea1fe05e2",
-      "kind": "list",
-      "text": "    // Generate new token pair\n    return this.generateTokenPair(\n      decoded.userId,\n      decoded.email,\n      decoded.roles\n    );\n  }",
-      "verified": false
-    },
-    {
-      "id": "64f91e56-f498-4484-bfe8-3785c1a85f6d",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "c16eb58f-774c-499d-b89a-433c877fb670",
-      "kind": "list",
-      "text": "   * Revokes a token by adding its JTI to the blacklist\n   */\n  public async revokeToken(jti: string): Promise<void> {\n    const key = `blacklist:${jti}`;\n    // Store in blacklist for 7 days (max token lifetime)\n    await this.redisClient.setex(key, this.REFRESH_TOKEN_EXPIRY_SECONDS, 'revoked');\n  }",
-      "verified": false
-    },
-    {
-      "id": "99ae0e39-f612-45c9-9bc2-71b3042295a9",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "15d463aa-f42a-419a-b7ff-f6add4b06e82",
-      "kind": "list",
-      "text": "   * Checks if a token is blacklisted\n   */\n  private async isTokenBlacklisted(jti: string): Promise<boolean> {\n    const key = `blacklist:${jti}`;\n    const result = await this.redisClient.exists(key);\n    return result === 1;\n  }",
-      "verified": false
-    },
-    {
-      "id": "04fe8674-de5c-49b3-b4fe-c098ce9f7123",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "7ea45d06-f78b-45e9-a1b7-8597cf029b19",
-      "kind": "list",
-      "text": "   * Revokes all tokens for a specific user\n   */\n  public async revokeAllUserTokens(userId: string): Promise<void> {\n    const pattern = `refresh_token:${userId}:*`;\n    const keys = await this.redisClient.keys(pattern);",
-      "verified": false
-    },
-    {
-      "id": "f284ec3b-e207-4a88-a10e-1b28816bb603",
-      "kind": "list",
-      "text": "    const pipeline = this.redisClient.pipeline();",
-      "verified": false
-    },
-    {
-      "id": "8c9c0350-74c8-4d63-bc64-e4e51fcdc82a",
-      "kind": "list",
-      "text": "    for (const key of keys) {\n      const jti = key.split(':')[2];\n      pipeline.del(key);\n      pipeline.setex(\n        `blacklist:${jti}`,\n        this.REFRESH_TOKEN_EXPIRY_SECONDS,\n        'revoked'\n      );\n    }",
-      "verified": false
-    },
-    {
-      "id": "b29cbc6b-f10b-4e95-ba6e-11b20b6ef4cf",
-      "kind": "list",
-      "text": "    await pipeline.exec();\n  }",
-      "verified": false
-    },
-    {
-      "id": "d8ecfac7-acef-45e2-9f4c-15438f436fbc",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "bcdc36f8-08cb-4bca-a6bf-fe2ac78d8c83",
-      "kind": "list",
-      "text": "   * Decodes a token without verification (for debugging)\n   */\n  public decodeToken(token: string): DecodedToken | null {\n    try {\n      return jwt.decode(token) as DecodedToken;\n    } catch {\n      return null;\n    }\n  }",
-      "verified": false
-    },
-    {
-      "id": "3705f536-fe7d-4f20-8c49-ad58dfc243f8",
-      "kind": "list",
-      "text": "  /**",
-      "verified": false
-    },
-    {
-      "id": "c20a2a24-1f28-4c4f-9b65-b1c01aded37f",
-      "kind": "list",
-      "text": "   * Extracts token from Authorization header\n   */\n  public extractBearerToken(authHeader: string | undefined): string | null {\n    if (!authHeader || !authHeader.startsWith('Bearer ')) {\n      return null;\n    }\n    return authHeader.substring(7);\n  }",
-      "verified": false
-    },
-    {
-      "id": "0412e580-6e3e-4c4b-867a-5ca84f0aacf0",
+      "id": "90160b8a-d55c-4cfa-8036-48d361b5be96",
       "kind": "paragraph",
-      "text": "}\n```",
+      "text": "The code he'd written at his childhood desk was touching lives across continents.",
       "verified": false
     },
     {
-      "id": "ac5f6b37-f64c-461e-a377-a820767f6ab7",
-      "kind": "header",
-      "text": "## Usage Examples",
-      "verified": false
-    },
-    {
-      "id": "64f929a0-dd4a-47c6-bee1-b8027f48a6be",
-      "kind": "header",
-      "text": "### Initialization",
-      "verified": false
-    },
-    {
-      "id": "9d7c16c6-2cd9-4b67-8713-f285a5f256be",
+      "id": "dec5c0ca-92cf-452b-9d29-0b0c63f87729",
       "kind": "paragraph",
-      "text": "```typescript\nimport { Redis } from 'ioredis';\nimport { TokenManager } from './token-manager';",
+      "text": "\"Deployment successful,\" he typed into Slack.",
       "verified": false
     },
     {
-      "id": "9948c886-49b3-4228-8c5c-406223f30ded",
+      "id": "e99f2a0c-ed13-44b5-ab6d-2786d0f034f8",
       "kind": "paragraph",
-      "text": "const redisClient = new Redis({\n  host: process.env.REDIS_HOST,\n  port: parseInt(process.env.REDIS_PORT || '6379'),\n});",
+      "text": "\"Crushing it as always,\" replied Marcus. \"Get some sleep!\"",
       "verified": false
     },
     {
-      "id": "52a97e93-187c-433e-a42d-5f5504ad310e",
+      "id": "38f730bb-3e55-428d-abc4-3db85a902882",
       "kind": "paragraph",
-      "text": "const tokenManager = new TokenManager(redisClient);\n```",
+      "text": "Arjun sipped his chai, watching the sunrise paint his window orange. Engineering school started in four hours. He'd learned more in six months at the startup than in three semesters of lectures.",
       "verified": false
     },
     {
-      "id": "132261ea-e7d4-460e-b4f8-615cce9f42b0",
-      "kind": "header",
-      "text": "### Generating Tokens on Login",
-      "verified": false
-    },
-    {
-      "id": "28fed207-eed7-4522-aded-81f13a281331",
+      "id": "3c3ddb5c-f40b-42c6-973f-18de47daf951",
       "kind": "paragraph",
-      "text": "```typescript\nconst tokens = await tokenManager.generateTokenPair(\n  user.id,\n  user.email,\n  user.roles\n);",
-      "verified": false
-    },
-    {
-      "id": "6e476349-1f79-447b-af5e-52cbb5fb9ae5",
-      "kind": "paragraph",
-      "text": "res.json({\n  accessToken: tokens.accessToken,\n  refreshToken: tokens.refreshToken,\n  expiresIn: tokens.expiresIn,\n});\n```",
-      "verified": false
-    },
-    {
-      "id": "7b374aa9-0e79-4f5e-865c-0a240417c81f",
-      "kind": "header",
-      "text": "### Validating Access Token (Middleware)",
-      "verified": false
-    },
-    {
-      "id": "835f9417-a619-49b7-ba76-1e9a8b73a04e",
-      "kind": "paragraph",
-      "text": "```typescript\nasync function authenticateToken(req, res, next) {\n  const token = tokenManager.extractBearerToken(req.headers.authorization);",
-      "verified": false
-    },
-    {
-      "id": "f1d1badc-dc79-47c6-a93b-8598ebbd80a6",
-      "kind": "list",
-      "text": "  if (!token) {\n    return res.status(401).json({ error: 'No token provided' });\n  }",
-      "verified": false
-    },
-    {
-      "id": "95000fbd-96e9-46d0-984b-e32943cbdeb8",
-      "kind": "paragraph",
-      "text": "  try {\n    const decoded = await tokenManager.validateAccessToken(token);\n    req.user = decoded;\n    next();\n  } catch (error) {\n    return res.status(403).json({ error: error.message });\n  }\n}\n```",
-      "verified": false
-    },
-    {
-      "id": "7c7df05d-2f35-44b5-a4f7-7aafb90f18ce",
-      "kind": "header",
-      "text": "### Refreshing Tokens",
-      "verified": false
-    },
-    {
-      "id": "7232e7cf-7b11-418b-917a-bab6311b0ac1",
-      "kind": "paragraph",
-      "text": "```typescript\nasync function refreshEndpoint(req, res) {\n  const { refreshToken } = req.body;",
-      "verified": false
-    },
-    {
-      "id": "f6929f84-e4b0-4d75-9302-e3eb47685523",
-      "kind": "paragraph",
-      "text": "  try {\n    const tokens = await tokenManager.refreshAccessToken(refreshToken);\n    res.json(tokens);\n  } catch (error) {\n    res.status(403).json({ error: 'Invalid refresh token' });\n  }\n}\n```",
-      "verified": false
-    },
-    {
-      "id": "ac07eb6f-62a9-44d6-b897-89fca2a934d1",
-      "kind": "header",
-      "text": "### Logout (Revoke Tokens)",
-      "verified": false
-    },
-    {
-      "id": "849150e8-e197-4c08-9240-3c4ec7c18a2d",
-      "kind": "paragraph",
-      "text": "```typescript\nasync function logoutEndpoint(req, res) {\n  const token = tokenManager.extractBearerToken(req.headers.authorization);",
-      "verified": false
-    },
-    {
-      "id": "5b339f53-ad9a-49ff-b2ea-1f05f1083d9d",
-      "kind": "list",
-      "text": "  if (token) {\n    const decoded = tokenManager.decodeToken(token);\n    if (decoded) {\n      await tokenManager.revokeAllUserTokens(decoded.userId);\n    }\n  }",
-      "verified": false
-    },
-    {
-      "id": "4092da19-5248-4ceb-8810-8ea3e2496277",
-      "kind": "paragraph",
-      "text": "  res.json({ message: 'Logged out successfully' });\n}\n```",
-      "verified": false
-    },
-    {
-      "id": "33bcb903-e2e0-4367-94a1-cdbf656c3c59",
-      "kind": "header",
-      "text": "## Security Considerations",
-      "verified": false
-    },
-    {
-      "id": "051a3016-f600-4936-b92e-55d7d6c9460c",
-      "kind": "header",
-      "text": "### Token Storage",
-      "verified": false
-    },
-    {
-      "id": "ffa8e33a-a477-4486-8e1f-0b6cb0f52514",
-      "kind": "list",
-      "text": "- **Access tokens**: Store in memory only (never localStorage)\n- **Refresh tokens**: Use httpOnly, secure cookies\n- **Secrets**: Must be strong, random, and environment-specific",
-      "verified": false
-    },
-    {
-      "id": "844d393d-628f-4054-baa5-423e6e041dad",
-      "kind": "header",
-      "text": "### Best Practices",
-      "verified": false
-    },
-    {
-      "id": "c61a1180-84a1-48eb-b2ad-cfffb00b5830",
-      "kind": "list",
-      "text": "1. Always use HTTPS in production\n2. Implement rate limiting on token endpoints\n3. Rotate token secrets periodically\n4. Monitor for suspicious token usage patterns\n5. Implement additional verification for sensitive operations",
-      "verified": false
-    },
-    {
-      "id": "a30a500b-ea00-4e9f-bd69-2fabc8c20c43",
-      "kind": "header",
-      "text": "### Expiry Strategy",
-      "verified": false
-    },
-    {
-      "id": "5b0bb201-9c23-42c9-9cb3-9a19875f4c51",
-      "kind": "list",
-      "text": "- Short-lived access tokens minimize exposure\n- Refresh tokens allow seamless re-authentication\n- Blacklist prevents use of revoked tokens",
-      "verified": false
-    },
-    {
-      "id": "a58c9be6-1d42-4e55-8cc0-a76601845352",
-      "kind": "header",
-      "text": "## Error Handling",
-      "verified": false
-    },
-    {
-      "id": "c930cf36-a8d2-4392-92f0-915672ad7763",
-      "kind": "paragraph",
-      "text": "The module throws descriptive errors for:",
-      "verified": false
-    },
-    {
-      "id": "37426b8c-6fcd-44ec-90b1-f39ca0393441",
-      "kind": "list",
-      "text": "- Expired tokens\n- Invalid signatures\n- Revoked tokens\n- Missing tokens\n- Type mismatches",
-      "verified": false
-    },
-    {
-      "id": "6cfd7d1a-5cbb-4749-9afb-3ce14c2f1351",
-      "kind": "header",
-      "text": "## Redis Data Structure",
-      "verified": false
-    },
-    {
-      "id": "7f323f20-71e6-443b-b2cb-3c758781cf25",
-      "kind": "paragraph",
-      "text": "```\nrefresh_token:{userId}:{jti} → \"valid\" (TTL: 7 days)\nblacklist:{jti} → \"revoked\" (TTL: 7 days)\n```",
-      "verified": false
-    },
-    {
-      "id": "f42682d0-6e84-4dc2-9ed3-4866feb56511",
-      "kind": "header",
-      "text": "## Future Enhancements",
-      "verified": false
-    },
-    {
-      "id": "010c47e7-a127-4046-ba5b-55934d41dc74",
-      "kind": "list",
-      "text": "1. Token rotation on each refresh\n2. Device fingerprinting\n3. Geographic location validation\n4. Token usage analytics\n5. Automatic cleanup of expired blacklist entries",
+      "text": "He closed his laptop, already thinking about tomorrow's features.",
       "verified": false
     }
   ],
-  "markdown": "# Authentication System: JWT Token Management Module\n\n## Summary\n\nThis document details the implementation of a JWT (JSON Web Token) management module for a web application's authentication system. This module handles token generation, validation, refresh, and revocation operations.\n\n## Technical Specifications\n\n### Technology Stack\n\n- **Language**: Node.js (TypeScript)\n- **JWT Library**: jsonwebtoken\n- **Storage**: Redis (for token blacklist/refresh tokens)\n- **Hashing**: bcrypt\n- **Framework**: Express.js compatible\n\n### Security Requirements\n\n- Access tokens expire after 15 minutes\n- Refresh tokens expire after 7 days\n- Tokens must include user ID, roles, and issued timestamp\n- Revoked tokens must be blacklisted\n- Token secrets must be environment-based\n\n## Implementation\n\n```typescript\n// token-manager.ts\n\nimport jwt from 'jsonwebtoken';\nimport { Redis } from 'ioredis';\nimport crypto from 'crypto';\n\ninterface TokenPayload {\n  userId: string;\n  email: string;\n  roles: string[];\n  tokenType: 'access' | 'refresh';\n}\n\ninterface TokenPair {\n  accessToken: string;\n  refreshToken: string;\n  expiresIn: number;\n}\n\ninterface DecodedToken extends TokenPayload {\n  iat: number;\n  exp: number;\n  jti: string;\n}\n\nexport class TokenManager {\n  private readonly ACCESS_TOKEN_SECRET: string;\n  private readonly REFRESH_TOKEN_SECRET: string;\n  private readonly ACCESS_TOKEN_EXPIRY = '15m';\n  private readonly REFRESH_TOKEN_EXPIRY = '7d';\n  private readonly REFRESH_TOKEN_EXPIRY_SECONDS = 7 * 24 * 60 * 60;\n  private redisClient: Redis;\n\n  constructor(redisClient: Redis) {\n    this.ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || '';\n    this.REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || '';\n\n    if (!this.ACCESS_TOKEN_SECRET || !this.REFRESH_TOKEN_SECRET) {\n      throw new Error('Token secrets must be defined in environment variables');\n    }\n\n    this.redisClient = redisClient;\n  }\n\n  /**\n\n   * Generates a unique JWT ID for token tracking\n   */\n  private generateJti(): string {\n    return crypto.randomBytes(16).toString('hex');\n  }\n\n  /**\n\n   * Creates both access and refresh tokens for a user\n   */\n  public async generateTokenPair(\n    userId: string,\n    email: string,\n    roles: string[]\n  ): Promise<TokenPair> {\n    const accessTokenJti = this.generateJti();\n    const refreshTokenJti = this.generateJti();\n\n    const accessTokenPayload: TokenPayload & { jti: string } = {\n      userId,\n      email,\n      roles,\n      tokenType: 'access',\n      jti: accessTokenJti,\n    };\n\n    const refreshTokenPayload: TokenPayload & { jti: string } = {\n      userId,\n      email,\n      roles,\n      tokenType: 'refresh',\n      jti: refreshTokenJti,\n    };\n\n    const accessToken = jwt.sign(\n      accessTokenPayload,\n      this.ACCESS_TOKEN_SECRET,\n      { expiresIn: this.ACCESS_TOKEN_EXPIRY }\n    );\n\n    const refreshToken = jwt.sign(\n      refreshTokenPayload,\n      this.REFRESH_TOKEN_SECRET,\n      { expiresIn: this.REFRESH_TOKEN_EXPIRY }\n    );\n\n    // Store refresh token JTI in Redis for validation\n    await this.storeRefreshToken(userId, refreshTokenJti);\n\n    return {\n      accessToken,\n      refreshToken,\n      expiresIn: 15 * 60, // 15 minutes in seconds\n    };\n  }\n\n  /**\n\n   * Stores refresh token identifier in Redis\n   */\n  private async storeRefreshToken(\n    userId: string,\n    jti: string\n  ): Promise<void> {\n    const key = `refresh_token:${userId}:${jti}`;\n    await this.redisClient.setex(\n      key,\n      this.REFRESH_TOKEN_EXPIRY_SECONDS,\n      'valid'\n    );\n  }\n\n  /**\n\n   * Validates and decodes an access token\n   */\n  public async validateAccessToken(token: string): Promise<DecodedToken> {\n    try {\n      const decoded = jwt.verify(\n        token,\n        this.ACCESS_TOKEN_SECRET\n      ) as DecodedToken;\n\n      if (decoded.tokenType !== 'access') {\n        throw new Error('Invalid token type');\n      }\n\n      // Check if token is blacklisted\n      const isBlacklisted = await this.isTokenBlacklisted(decoded.jti);\n      if (isBlacklisted) {\n        throw new Error('Token has been revoked');\n      }\n\n      return decoded;\n    } catch (error) {\n      if (error instanceof jwt.TokenExpiredError) {\n        throw new Error('Access token has expired');\n      }\n      if (error instanceof jwt.JsonWebTokenError) {\n        throw new Error('Invalid access token');\n      }\n      throw error;\n    }\n  }\n\n  /**\n\n   * Validates a refresh token\n   */\n  public async validateRefreshToken(token: string): Promise<DecodedToken> {\n    try {\n      const decoded = jwt.verify(\n        token,\n        this.REFRESH_TOKEN_SECRET\n      ) as DecodedToken;\n\n      if (decoded.tokenType !== 'refresh') {\n        throw new Error('Invalid token type');\n      }\n\n      // Check if refresh token exists in Redis\n      const key = `refresh_token:${decoded.userId}:${decoded.jti}`;\n      const exists = await this.redisClient.exists(key);\n\n      if (!exists) {\n        throw new Error('Refresh token not found or expired');\n      }\n\n      // Check if token is blacklisted\n      const isBlacklisted = await this.isTokenBlacklisted(decoded.jti);\n      if (isBlacklisted) {\n        throw new Error('Token has been revoked');\n      }\n\n      return decoded;\n    } catch (error) {\n      if (error instanceof jwt.TokenExpiredError) {\n        throw new Error('Refresh token has expired');\n      }\n      if (error instanceof jwt.JsonWebTokenError) {\n        throw new Error('Invalid refresh token');\n      }\n      throw error;\n    }\n  }\n\n  /**\n\n   * Refreshes an access token using a valid refresh token\n   */\n  public async refreshAccessToken(refreshToken: string): Promise<TokenPair> {\n    const decoded = await this.validateRefreshToken(refreshToken);\n\n    // Revoke the old refresh token\n    await this.revokeToken(decoded.jti);\n\n    // Generate new token pair\n    return this.generateTokenPair(\n      decoded.userId,\n      decoded.email,\n      decoded.roles\n    );\n  }\n\n  /**\n\n   * Revokes a token by adding its JTI to the blacklist\n   */\n  public async revokeToken(jti: string): Promise<void> {\n    const key = `blacklist:${jti}`;\n    // Store in blacklist for 7 days (max token lifetime)\n    await this.redisClient.setex(key, this.REFRESH_TOKEN_EXPIRY_SECONDS, 'revoked');\n  }\n\n  /**\n\n   * Checks if a token is blacklisted\n   */\n  private async isTokenBlacklisted(jti: string): Promise<boolean> {\n    const key = `blacklist:${jti}`;\n    const result = await this.redisClient.exists(key);\n    return result === 1;\n  }\n\n  /**\n\n   * Revokes all tokens for a specific user\n   */\n  public async revokeAllUserTokens(userId: string): Promise<void> {\n    const pattern = `refresh_token:${userId}:*`;\n    const keys = await this.redisClient.keys(pattern);\n\n    const pipeline = this.redisClient.pipeline();\n\n    for (const key of keys) {\n      const jti = key.split(':')[2];\n      pipeline.del(key);\n      pipeline.setex(\n        `blacklist:${jti}`,\n        this.REFRESH_TOKEN_EXPIRY_SECONDS,\n        'revoked'\n      );\n    }\n\n    await pipeline.exec();\n  }\n\n  /**\n\n   * Decodes a token without verification (for debugging)\n   */\n  public decodeToken(token: string): DecodedToken | null {\n    try {\n      return jwt.decode(token) as DecodedToken;\n    } catch {\n      return null;\n    }\n  }\n\n  /**\n\n   * Extracts token from Authorization header\n   */\n  public extractBearerToken(authHeader: string | undefined): string | null {\n    if (!authHeader || !authHeader.startsWith('Bearer ')) {\n      return null;\n    }\n    return authHeader.substring(7);\n  }\n\n}\n```\n\n## Usage Examples\n\n### Initialization\n\n```typescript\nimport { Redis } from 'ioredis';\nimport { TokenManager } from './token-manager';\n\nconst redisClient = new Redis({\n  host: process.env.REDIS_HOST,\n  port: parseInt(process.env.REDIS_PORT || '6379'),\n});\n\nconst tokenManager = new TokenManager(redisClient);\n```\n\n### Generating Tokens on Login\n\n```typescript\nconst tokens = await tokenManager.generateTokenPair(\n  user.id,\n  user.email,\n  user.roles\n);\n\nres.json({\n  accessToken: tokens.accessToken,\n  refreshToken: tokens.refreshToken,\n  expiresIn: tokens.expiresIn,\n});\n```\n\n### Validating Access Token (Middleware)\n\n```typescript\nasync function authenticateToken(req, res, next) {\n  const token = tokenManager.extractBearerToken(req.headers.authorization);\n\n  if (!token) {\n    return res.status(401).json({ error: 'No token provided' });\n  }\n\n  try {\n    const decoded = await tokenManager.validateAccessToken(token);\n    req.user = decoded;\n    next();\n  } catch (error) {\n    return res.status(403).json({ error: error.message });\n  }\n}\n```\n\n### Refreshing Tokens\n\n```typescript\nasync function refreshEndpoint(req, res) {\n  const { refreshToken } = req.body;\n\n  try {\n    const tokens = await tokenManager.refreshAccessToken(refreshToken);\n    res.json(tokens);\n  } catch (error) {\n    res.status(403).json({ error: 'Invalid refresh token' });\n  }\n}\n```\n\n### Logout (Revoke Tokens)\n\n```typescript\nasync function logoutEndpoint(req, res) {\n  const token = tokenManager.extractBearerToken(req.headers.authorization);\n\n  if (token) {\n    const decoded = tokenManager.decodeToken(token);\n    if (decoded) {\n      await tokenManager.revokeAllUserTokens(decoded.userId);\n    }\n  }\n\n  res.json({ message: 'Logged out successfully' });\n}\n```\n\n## Security Considerations\n\n### Token Storage\n\n- **Access tokens**: Store in memory only (never localStorage)\n- **Refresh tokens**: Use httpOnly, secure cookies\n- **Secrets**: Must be strong, random, and environment-specific\n\n### Best Practices\n\n1. Always use HTTPS in production\n2. Implement rate limiting on token endpoints\n3. Rotate token secrets periodically\n4. Monitor for suspicious token usage patterns\n5. Implement additional verification for sensitive operations\n\n### Expiry Strategy\n\n- Short-lived access tokens minimize exposure\n- Refresh tokens allow seamless re-authentication\n- Blacklist prevents use of revoked tokens\n\n## Error Handling\n\nThe module throws descriptive errors for:\n\n- Expired tokens\n- Invalid signatures\n- Revoked tokens\n- Missing tokens\n- Type mismatches\n\n## Redis Data Structure\n\n```\nrefresh_token:{userId}:{jti} → \"valid\" (TTL: 7 days)\nblacklist:{jti} → \"revoked\" (TTL: 7 days)\n```\n\n## Future Enhancements\n\n1. Token rotation on each refresh\n2. Device fingerprinting\n3. Geographic location validation\n4. Token usage analytics\n5. Automatic cleanup of expired blacklist entries"
+  "markdown": "# The Midnight Deploy\n\nArjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 3:47 AM. In San Francisco, his co-founders were just finishing lunch.\n\n\"Deploy looks good,\" Sarah messaged. \"Great work on the API fix.\"\n\nHe smiled, exhaustion forgotten. Six months ago, he'd been a college freshman juggling thermodynamics lectures and late-night coding sessions. Now he was employee #4 at a Y Combinator startup, building infrastructure that served fifty thousand users.\n\nHis mother knocked softly. \"Still working?\"\n\n\"Almost done, Amma.\"\n\nShe set down chai, fragrant with cardamom. \"Don't forget—you're still eighteen.\"\n\nArjun refreshed the monitoring dashboard. Error rates dropping. Response times optimal. Somewhere in Missouri, a teacher was using their platform to plan tomorrow's lesson. In Brazil, a student was taking a practice exam.\n\nThe code he'd written at his childhood desk was touching lives across continents.\n\n\"Deployment successful,\" he typed into Slack.\n\n\"Crushing it as always,\" replied Marcus. \"Get some sleep!\"\n\nArjun sipped his chai, watching the sunrise paint his window orange. Engineering school started in four hours. He'd learned more in six months at the startup than in three semesters of lectures.\n\nHe closed his laptop, already thinking about tomorrow's features."
 }
