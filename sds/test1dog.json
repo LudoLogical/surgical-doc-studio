@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "test1dog",
-  "updatedAt": "2026-03-30T02:32:53.085Z",
+  "updatedAt": "2026-03-30T02:33:06.908Z",
   "branch": "main",
   "blocks": [
     {
@@ -24,7 +24,9 @@
       "id": "47d488f3-b6e5-452e-8541-c0d1224b493c",
       "kind": "paragraph",
       "text": "This document provides guidance on selecting dog breeds suitable for individuals with allergies who maintain a more sedentary lifestyle. The ideal companion dogs for this demographic combine low-shedding characteristics (which reduce allergen exposure) with moderate to low exercise requirements.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-30T02:33:06.908Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "9bf671c5-a7fb-4caf-a3c5-34b7de71abc7",
