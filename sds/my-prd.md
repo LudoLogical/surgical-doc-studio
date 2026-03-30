@@ -1,4 +1,4 @@
-# A Poem About Curious George
+# The Mischievous Adventures of Curious George
 
 ## The Little Monkey's Adventure
 
