@@ -1,7 +1,7 @@
 {
   "slug": "curious-george",
   "branch": "main",
-  "exportedAt": "2026-03-30T15:50:12.434Z",
+  "exportedAt": "2026-03-30T15:50:15.555Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "2a7fabd3-abad-49b5-867f-d8b50f878a5c",
@@ -36,7 +36,9 @@
       "id": "700bbfab-a1de-4d82-8bb1-d62334343feb",
       "kind": "paragraph",
       "text": "In a jungle far away, beneath the trees so tall,  \nLived a monkey small and brown, the most cautious of all.  \nWith eyes that watched and hands held close, and tail wrapped tight and still,  \nGeorge the monkey feared the world beyond his leafy hill.\n\nBut slowly, day by day, he'd peek a little more,  \nAt butterflies and rustling leaves he'd never noticed before.  \nHis eyes grew bright, his hands grew quick, his tail began to swing,  \nAnd George the monkey started wondering about every little thing.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-30T15:50:14.777Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "81b914b9-4cb3-480c-bc7a-22192c7706b5",
