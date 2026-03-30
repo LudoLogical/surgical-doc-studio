@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "slug": "test2dog",
+  "updatedAt": "2026-03-30T03:05:32.179Z",
+  "branch": "main",
+  "blocks": [
+    {
+      "id": "9f800ba8-ae9a-4584-bff4-23a94711c5de",
+      "kind": "header",
+      "text": "# How Dogs Help Depression",
+      "verified": true,
+      "verifiedAt": "2026-03-30T03:05:32.179Z",
+      "verifiedBy": "cameronjaede-coder"
+    },
+    {
+      "id": "f050ad28-ed32-48f3-8ddd-d37606c8ef68",
+      "kind": "paragraph",
+      "text": "Dogs provide significant therapeutic benefits for individuals experiencing depression through multiple psychological and physiological mechanisms.",
+      "verified": false
+    },
+    {
+      "id": "97895411-ca51-4bfb-a26a-be3533179de6",
+      "kind": "header",
+      "text": "## Companionship and Emotional Support",
+      "verified": false
+    },
+    {
+      "id": "2861b3ba-0c96-46f7-b3f6-4b64558cb7c3",
+      "kind": "paragraph",
+      "text": "Dogs offer unconditional love and non-judgmental companionship, reducing feelings of loneliness and isolation that often accompany depression. Their constant presence provides comfort and emotional stability during difficult periods.",
+      "verified": false
+    },
+    {
+      "id": "aa6a1deb-7e03-4e15-a93e-12e27217cc82",
+      "kind": "header",
+      "text": "## Physical Activity and Routine",
+      "verified": false
+    },
+    {
+      "id": "a03fc2c8-e9b2-438c-835b-308d5847f269",
+      "kind": "paragraph",
+      "text": "Caring for a dog establishes a necessary daily routine, including:",
+      "verified": false
+    },
+    {
+      "id": "5fc9a104-48fc-48e5-b527-db6f8b3bb867",
+      "kind": "list",
+      "text": "- Regular feeding schedules\n- Daily walks and exercise\n- Grooming and play sessions",
+      "verified": false
+    },
+    {
+      "id": "a89cd692-4df9-4185-9e06-0abec8563a16",
+      "kind": "paragraph",
+      "text": "This structure helps combat the lethargy and lack of motivation common in depression, while physical activity naturally boosts endorphin levels and improves mood.",
+      "verified": false
+    },
+    {
+      "id": "c4a4dc69-4332-4d91-ba37-906cf30bf7f6",
+      "kind": "header",
+      "text": "## Biochemical Effects",
+      "verified": false
+    },
+    {
+      "id": "ccd0feda-61f4-4b53-9f9b-051fe376c1b8",
+      "kind": "paragraph",
+      "text": "Interacting with dogs triggers the release of oxytocin, the \"bonding hormone,\" which reduces stress and promotes feelings of well-being. Simultaneously, petting dogs can lower cortisol levels, decreasing physiological stress responses.",
+      "verified": false
+    },
+    {
+      "id": "be74280d-08c6-4b0a-a7e7-3e437229fa76",
+      "kind": "header",
+      "text": "## Social Connection",
+      "verified": false
+    },
+    {
+      "id": "2af64cf8-56c0-4844-a25e-41f1e4cfd964",
+      "kind": "paragraph",
+      "text": "Dog ownership facilitates social interactions during walks or visits to dog parks, helping depressed individuals maintain connections with their community and combat social withdrawal.",
+      "verified": false
+    },
+    {
+      "id": "a277de98-46a5-44a3-93a7-aac773bc9f28",
+      "kind": "header",
+      "text": "## Sense of Purpose",
+      "verified": false
+    },
+    {
+      "id": "93f4e1f5-c3b7-4075-b0bd-643c5c56b227",
+      "kind": "paragraph",
+      "text": "Caring for a dependent living being provides meaning and purpose, encouraging individuals to maintain self-care routines and remain engaged with daily life. Dogs need their owners, which can be powerfully motivating for someone struggling with depression's overwhelming feelings of worthlessness.",
+      "verified": false
+    }
+  ],
+  "markdown": "# How Dogs Help Depression\n\nDogs provide significant therapeutic benefits for individuals experiencing depression through multiple psychological and physiological mechanisms.\n\n## Companionship and Emotional Support\n\nDogs offer unconditional love and non-judgmental companionship, reducing feelings of loneliness and isolation that often accompany depression. Their constant presence provides comfort and emotional stability during difficult periods.\n\n## Physical Activity and Routine\n\nCaring for a dog establishes a necessary daily routine, including:\n\n- Regular feeding schedules\n- Daily walks and exercise\n- Grooming and play sessions\n\nThis structure helps combat the lethargy and lack of motivation common in depression, while physical activity naturally boosts endorphin levels and improves mood.\n\n## Biochemical Effects\n\nInteracting with dogs triggers the release of oxytocin, the \"bonding hormone,\" which reduces stress and promotes feelings of well-being. Simultaneously, petting dogs can lower cortisol levels, decreasing physiological stress responses.\n\n## Social Connection\n\nDog ownership facilitates social interactions during walks or visits to dog parks, helping depressed individuals maintain connections with their community and combat social withdrawal.\n\n## Sense of Purpose\n\nCaring for a dependent living being provides meaning and purpose, encouraging individuals to maintain self-care routines and remain engaged with daily life. Dogs need their owners, which can be powerfully motivating for someone struggling with depression's overwhelming feelings of worthlessness."
+}
