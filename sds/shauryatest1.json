@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "shauryatest1",
-  "updatedAt": "2026-03-30T14:43:00.234Z",
+  "updatedAt": "2026-03-30T14:43:37.087Z",
   "branch": "main",
   "blocks": [
     {
@@ -15,7 +15,7 @@
     {
       "id": "b5937f67-f4e3-484a-9e66-a043f8668cd1",
       "kind": "paragraph",
-      "text": "Arjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 3:47 AM. In San Francisco, his co-founders were just finishing lunch.",
+      "text": "Arjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 4:00 AM. In San Francisco, his co-founders were just finishing lunch.",
       "verified": false
     },
     {
@@ -85,5 +85,5 @@
       "verified": false
     }
   ],
-  "markdown": "# The Midnight Deploy\n\nArjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 3:47 AM. In San Francisco, his co-founders were just finishing lunch.\n\n\"Deploy looks good,\" Sarah messaged. \"Great work on the API fix.\"\n\nHe smiled, exhaustion forgotten. Six months ago, he'd been a college freshman juggling thermodynamics lectures and late-night coding sessions. Now he was employee #4 at a Y Combinator startup, building infrastructure that served fifty thousand users.\n\nHis mother knocked softly. \"Still working?\"\n\n\"Almost done, Amma.\"\n\nShe set down chai, fragrant with cardamom. \"Don't forget—you're still eighteen.\"\n\nArjun refreshed the monitoring dashboard. Error rates dropping. Response times optimal. Somewhere in Missouri, a teacher was using their platform to plan tomorrow's lesson. In Brazil, a student was taking a practice exam.\n\nThe code he'd written at his childhood desk was touching lives across continents.\n\n\"Deployment successful,\" he typed into Slack.\n\n\"Crushing it as always,\" replied Marcus. \"Get some sleep!\"\n\nArjun sipped his chai, watching the sunrise paint his window orange. Engineering school started in four hours. He'd learned more in six months at the startup than in three semesters of lectures.\n\nHe closed his laptop, already thinking about tomorrow's features."
+  "markdown": "# The Midnight Deploy\n\nArjun's fingers flew across the keyboard, the glow of his dual monitors cutting through the Bangalore darkness. 4:00 AM. In San Francisco, his co-founders were just finishing lunch.\n\n\"Deploy looks good,\" Sarah messaged. \"Great work on the API fix.\"\n\nHe smiled, exhaustion forgotten. Six months ago, he'd been a college freshman juggling thermodynamics lectures and late-night coding sessions. Now he was employee #4 at a Y Combinator startup, building infrastructure that served fifty thousand users.\n\nHis mother knocked softly. \"Still working?\"\n\n\"Almost done, Amma.\"\n\nShe set down chai, fragrant with cardamom. \"Don't forget—you're still eighteen.\"\n\nArjun refreshed the monitoring dashboard. Error rates dropping. Response times optimal. Somewhere in Missouri, a teacher was using their platform to plan tomorrow's lesson. In Brazil, a student was taking a practice exam.\n\nThe code he'd written at his childhood desk was touching lives across continents.\n\n\"Deployment successful,\" he typed into Slack.\n\n\"Crushing it as always,\" replied Marcus. \"Get some sleep!\"\n\nArjun sipped his chai, watching the sunrise paint his window orange. Engineering school started in four hours. He'd learned more in six months at the startup than in three semesters of lectures.\n\nHe closed his laptop, already thinking about tomorrow's features."
 }
