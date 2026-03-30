@@ -3,9 +3,9 @@
 ## The Little Monkey's Adventure
 
 In a jungle close to home, beneath the trees so tall,  
-Lived a monkey small and brown, the most cautious of all.  
-With eyes that watched and hands held close, and tail wrapped tight and still,  
-George the monkey feared the world beyond his leafy hill.
+Lived a monkey small and brown, who feared to climb or crawl.  
+With eyes that watched the world outside, and tail wrapped tight with dread,  
+George the monkey stayed alone upon his leafy bed.
 
 But slowly, day by day, he'd peek a little more,  
 At butterflies and rustling leaves he'd never noticed before.  
