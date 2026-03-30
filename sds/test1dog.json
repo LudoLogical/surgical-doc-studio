@@ -1,7 +1,7 @@
 {
   "version": 1,
   "slug": "test1dog",
-  "updatedAt": "2026-03-30T02:32:21.485Z",
+  "updatedAt": "2026-03-30T02:32:53.085Z",
   "branch": "main",
   "blocks": [
     {
@@ -16,7 +16,9 @@
       "id": "467f1cbc-ff3a-4924-b05a-1f77db6a1b1e",
       "kind": "header",
       "text": "## Overview",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-30T02:32:53.085Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "47d488f3-b6e5-452e-8541-c0d1224b493c",
