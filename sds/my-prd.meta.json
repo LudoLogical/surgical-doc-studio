@@ -1,7 +1,7 @@
 {
   "slug": "my-prd",
   "branch": "main",
-  "exportedAt": "2026-03-30T18:26:24.508Z",
+  "exportedAt": "2026-03-30T18:27:11.894Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "4d9b88ff-51b2-46df-8c32-fcbfcd95d50a",
@@ -40,8 +40,10 @@
     {
       "id": "dd184cf6-8c9f-4202-b6b2-48ab538259a8",
       "kind": "paragraph",
-      "text": "In a jungle close by hand, beneath the trees so tall,  \nLived a monkey small and brown, the most cautious of all.  \nWith eyes that watched and hands held close, and tail wrapped tight and still,  \nGeorge the monkey feared the world beyond his leafy hill.",
-      "verified": false
+      "text": "In a jungle close and local, beneath the trees so tall,  \nLived a monkey small and brown, the most cautious of all.  \nWith eyes that watched and hands held close, and tail wrapped tight and still,  \nGeorge the monkey feared the world beyond his leafy hill.",
+      "verified": true,
+      "verifiedAt": "2026-03-30T18:27:11.018Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "606b2662-f61f-42ad-842e-c200478530d1",
