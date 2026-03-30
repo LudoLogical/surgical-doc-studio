@@ -1,0 +1,82 @@
+{
+  "slug": "write-a-haiku-about-dolphins-and-polluti",
+  "branch": "main",
+  "exportedAt": "2026-03-30T23:29:57.981Z",
+  "verifiedOnly": false,
+  "exportedBlockIds": [
+    "cbec789f-d773-4dd3-a8e1-00847de0c1cd",
+    "93def855-7314-422e-9efa-aced5af8d2a9",
+    "157c2f76-404a-4cf0-93be-39e2c9cab596",
+    "5d9f2e9f-a33d-4b50-a64c-3487e433b598",
+    "0c6c3322-db73-450c-b9f2-a17175b9fc3f",
+    "6ae1161b-8a10-4078-888d-bc0757d4ab4b",
+    "655c2849-4369-4838-a8f1-26f91eaef47b",
+    "06942837-ee5a-414d-abca-c539bd61fa0e",
+    "798a31b7-5ce5-480b-a72d-c50dc9197811",
+    "d2eb90d3-a7f3-4771-b9a6-34b9ab28bbb2"
+  ],
+  "blocks": [
+    {
+      "id": "cbec789f-d773-4dd3-a8e1-00847de0c1cd",
+      "kind": "header",
+      "text": "# Haiku: Dolphins and Pollution",
+      "verified": false
+    },
+    {
+      "id": "93def855-7314-422e-9efa-aced5af8d2a9",
+      "kind": "header",
+      "text": "## Poem",
+      "verified": false
+    },
+    {
+      "id": "157c2f76-404a-4cf0-93be-39e2c9cab596",
+      "kind": "paragraph",
+      "text": "Plastic waves surround  \nDolphins leap through murky depths—  \nOcean chokes on waste",
+      "verified": true,
+      "verifiedAt": "2026-03-30T23:29:57.318Z",
+      "verifiedBy": "cameronjaede-coder"
+    },
+    {
+      "id": "5d9f2e9f-a33d-4b50-a64c-3487e433b598",
+      "kind": "header",
+      "text": "## Context",
+      "verified": false
+    },
+    {
+      "id": "0c6c3322-db73-450c-b9f2-a17175b9fc3f",
+      "kind": "paragraph",
+      "text": "This haiku juxtaposes the grace and vitality of dolphins against the grim reality of marine pollution. The 5-7-5 syllable structure captures a moment of tension between natural beauty and environmental degradation.",
+      "verified": false
+    },
+    {
+      "id": "6ae1161b-8a10-4078-888d-bc0757d4ab4b",
+      "kind": "header",
+      "text": "### Imagery Breakdown",
+      "verified": false
+    },
+    {
+      "id": "655c2849-4369-4838-a8f1-26f91eaef47b",
+      "kind": "list",
+      "text": "- **Line 1**: \"Plastic waves surround\" (5 syllables) — Establishes the polluted setting\n- **Line 2**: \"Dolphins leap through murky depths\" (7 syllables) — Depicts marine life persisting despite contamination\n- **Line 3**: \"Ocean chokes on waste\" (5 syllables) — Delivers the stark environmental message",
+      "verified": false
+    },
+    {
+      "id": "06942837-ee5a-414d-abca-c539bd61fa0e",
+      "kind": "header",
+      "text": "### Thematic Elements",
+      "verified": false
+    },
+    {
+      "id": "798a31b7-5ce5-480b-a72d-c50dc9197811",
+      "kind": "paragraph",
+      "text": "The haiku employs traditional nature imagery while addressing contemporary environmental concerns, creating a contrast between:",
+      "verified": false
+    },
+    {
+      "id": "d2eb90d3-a7f3-4771-b9a6-34b9ab28bbb2",
+      "kind": "list",
+      "text": "- The dolphins' freedom of movement and the ocean's imprisonment by pollution\n- Natural elegance and human-caused degradation\n- Life's persistence and environmental threat",
+      "verified": false
+    }
+  ]
+}
