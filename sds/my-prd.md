@@ -1,4 +1,4 @@
-# The Mischievous Adventures of (test) Curious George
+# The Mischievous Adventures of Curious George
 
 ## The Little Monkey's Adventure
 
