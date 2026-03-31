@@ -2,11 +2,15 @@ import type { BlockKind, SdsBlock } from "./types";
 
 const LIST_LINE = /^\s*(?:[-*+]|\d+\.)\s+/;
 
-function newId(): string {
+export function newSdsBlockId(): string {
   if (typeof crypto !== "undefined" && crypto.randomUUID) {
     return crypto.randomUUID();
   }
   return `b-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
+}
+
+function newId(): string {
+  return newSdsBlockId();
 }
 
 /** Classify a non-empty segment (possibly multi-line) */

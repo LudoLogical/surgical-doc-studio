@@ -48,41 +48,56 @@ export function LandingPage({
   onFileSelected,
 }: Props) {
   return (
-    <div className="flex min-h-0 flex-1 flex-col items-center justify-start overflow-y-auto px-4 py-10 sm:py-14">
+    <div className="flex min-h-0 flex-1 flex-col items-center justify-start overflow-y-auto px-4 pt-4 pb-10 sm:pt-5 sm:pb-14">
       <div className="w-full max-w-5xl">
         <div className="mb-10 text-center">
-          <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl">
-            Start a project
+          <p className="text-base font-medium text-indigo-600 sm:text-lg">
+            Hello — let&apos;s get you editing.
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+            Welcome to Surgical Doc Studio
           </h2>
-          <p className="mt-2 max-w-xl mx-auto text-sm text-zinc-600">
-            Generate a draft with AI, load from your GitHub repo, or import a Markdown file.
-            Connect{" "}
+          <p className="mt-4 max-w-2xl mx-auto text-base leading-relaxed text-zinc-600 sm:text-lg">
+            This is a Markdown text editor for long-form writing: you work in sections, and AI
+            refines <span className="font-medium text-zinc-800">one piece at a time</span> instead of
+            regenerating the whole document and scrambling what you already liked.{" "}
+            <span className="whitespace-nowrap">Tweezers, not a wrecking ball.</span>
+          </p>
+          <p className="mt-6 text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl">
+            Choose one option below to get started.
+          </p>
+          <p className="mt-3 max-w-xl mx-auto text-base text-zinc-600 sm:text-lg">
+            Use{" "}
             <button
               type="button"
               onClick={onOpenSettings}
-              className="font-medium text-indigo-600 underline decoration-indigo-200 underline-offset-2 hover:text-indigo-800"
+              className="font-semibold text-indigo-700 underline decoration-indigo-200 underline-offset-2 hover:text-indigo-900"
             >
               Settings
             </button>{" "}
-            for repository, branch, and API keys.
+            for repo, branch, and API keys when you need them.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div
+          className="grid gap-6 md:grid-cols-3"
+          role="group"
+          aria-label="Ways to open or start a document—pick one option"
+        >
           <section className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-indigo-200 hover:shadow-md">
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white">
               <Sparkles className="h-5 w-5" aria-hidden />
             </div>
             <h3 className="text-base font-semibold text-zinc-900">New AI draft</h3>
             <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-              Describe what you need; we&apos;ll draft structured Markdown you can refine in the
-              editor.
+              Describe what you&apos;re writing; we&apos;ll draft structured Markdown you refine in
+              the editor.
             </p>
             <textarea
               value={genTopic}
               onChange={(e) => onGenTopicChange(e.target.value)}
               rows={4}
-              placeholder="e.g. PRD for the new billing API"
+              placeholder="e.g. a one-page brief on our Q3 roadmap"
               className="mt-4 min-h-0 w-full resize-y rounded-lg border border-zinc-300 px-3 py-2 text-sm leading-relaxed outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200"
             />
             <button
@@ -128,7 +143,7 @@ export function LandingPage({
             <input
               value={slug}
               onChange={(e) => onSlugChange(e.target.value)}
-              placeholder="my-prd"
+              placeholder="my-document"
               autoComplete="off"
               spellCheck={false}
               className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 font-mono text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200"
@@ -156,7 +171,7 @@ export function LandingPage({
             <p className="mt-1 text-xs leading-relaxed text-zinc-500">
               Upload a <code className="rounded bg-zinc-100 px-1 font-mono text-[11px]">.md</code> or{" "}
               <code className="rounded bg-zinc-100 px-1 font-mono text-[11px]">.txt</code> file, or
-              paste content and parse into blocks.
+              paste text—we&apos;ll split it into sections you can edit.
             </p>
             <input
               ref={fileInputRef}
@@ -186,7 +201,7 @@ export function LandingPage({
               value={paste}
               onChange={(e) => onPasteChange(e.target.value)}
               rows={5}
-              placeholder="Paste a PRD or spec..."
+              placeholder="Paste Markdown or plain text..."
               className="mt-1 min-h-0 w-full flex-1 resize-y rounded-lg border border-zinc-300 px-3 py-2 text-sm leading-relaxed outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             />
             <button
@@ -200,7 +215,7 @@ export function LandingPage({
               ) : (
                 <FileCode2 className="h-4 w-4" aria-hidden />
               )}
-              Parse into blocks
+              Parse & open
             </button>
           </section>
         </div>

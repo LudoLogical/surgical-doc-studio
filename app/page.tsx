@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Fragment,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -18,7 +19,9 @@ import {
   ArrowLeft,
   Download,
   FileText,
-  FlaskConical,
+  GripVertical,
+  Plus,
+  Trash2,
   GitBranch,
   GitCommitHorizontal,
   RotateCcw,
@@ -49,6 +52,12 @@ import {
 import { FileSwitcherMenu } from "@/components/FileSwitcherMenu";
 import { LandingPage } from "@/components/LandingPage";
 import { PrDiff } from "@/components/PrDiff";
+import {
+  cloneBlocksForPaste,
+  createEmptyBlock,
+  insertBlocksAt,
+  moveBlockToGap,
+} from "@/lib/sds/block-ops";
 import { blocksToMarkdown, parseDocumentToBlocks } from "@/lib/sds/parse";
 import type { SdsBlock } from "@/lib/sds/types";
 import {
@@ -85,6 +94,17 @@ type EditorSessionV1 = {
   paste: string;
   selectedBlockId: string | null;
 };
+
+type FlowHistoryEntry = {
+  blocks: SdsBlock[];
+  selectedBlockId: string | null;
+};
+
+const MAX_FLOW_HISTORY = 80;
+
+function cloneBlocksSnapshot(blocks: SdsBlock[]): SdsBlock[] {
+  return blocks.map((b) => ({ ...b }));
+}
 
 function toSdsBlocks(
   parsed: Omit<SdsBlock, "verified">[],
@@ -197,6 +217,16 @@ export default function Home() {
   const [toast, setToast] = useState<string | null>(null);
   /** Bulk checkbox selection (multi-select for verify); distinct from `selectedBlockId` (sidebar). */
   const [bulkSelectedIds, setBulkSelectedIds] = useState<string[]>([]);
+  /** Cut/copy buffer for document-flow blocks (paste inserts fresh ids). */
+  const [flowClipboard, setFlowClipboard] = useState<SdsBlock[] | null>(null);
+  const [draggingBlockId, setDraggingBlockId] = useState<string | null>(null);
+  const [flowDropGapIndex, setFlowDropGapIndex] = useState<number | null>(null);
+  /** Gap index for keyboard paste; click an insert row to set. */
+  const [pasteTargetGapIndex, setPasteTargetGapIndex] = useState<number | null>(
+    null,
+  );
+  const [flowHistoryPast, setFlowHistoryPast] = useState<FlowHistoryEntry[]>([]);
+  const [flowHistoryFuture, setFlowHistoryFuture] = useState<FlowHistoryEntry[]>([]);
   const selectAllCheckboxRef = useRef<HTMLInputElement | null>(null);
   const blockRefs = useRef<Record<string, HTMLLIElement | null>>({});
   const commandScrollRef = useRef<HTMLDivElement | null>(null);
@@ -210,6 +240,8 @@ export default function Home() {
   const slugRef = useRef("");
   slugRef.current = slug;
   const documentTitleAnchorRef = useRef<HTMLDivElement | null>(null);
+  /** Repo bar + Settings + Finalize & Export — full top action area for the tutorial. */
+  const tutorialHeaderExportRef = useRef<HTMLDivElement | null>(null);
   const tutorialAsideRef = useRef<HTMLElement | null>(null);
   const [headerTitleEditing, setHeaderTitleEditing] = useState(false);
   const [editorTutorialOpen, setEditorTutorialOpen] = useState(false);
@@ -237,6 +269,70 @@ export default function Home() {
 
   const inEditor = sessionRestored && blocks.length > 0;
 
+  const clearFlowHistory = useCallback(() => {
+    setFlowHistoryPast([]);
+    setFlowHistoryFuture([]);
+  }, []);
+
+  const commitFlowBlocksChange = useCallback(
+    (nextBlocks: SdsBlock[], nextSelectedBlockId?: string | null) => {
+      setFlowHistoryPast((prev) => {
+        const snapshot: FlowHistoryEntry = {
+          blocks: cloneBlocksSnapshot(blocks),
+          selectedBlockId,
+        };
+        const next = [...prev, snapshot];
+        return next.length > MAX_FLOW_HISTORY
+          ? next.slice(next.length - MAX_FLOW_HISTORY)
+          : next;
+      });
+      setFlowHistoryFuture([]);
+      setBlocks(nextBlocks);
+      if (nextSelectedBlockId !== undefined) {
+        setSelectedBlockId(nextSelectedBlockId);
+      }
+    },
+    [blocks, selectedBlockId],
+  );
+
+  const undoFlowBlocksChange = useCallback(() => {
+    if (flowHistoryPast.length === 0) return;
+    const prevEntry = flowHistoryPast[flowHistoryPast.length - 1];
+    const beforeUndo: FlowHistoryEntry = {
+      blocks: cloneBlocksSnapshot(blocks),
+      selectedBlockId,
+    };
+    setFlowHistoryPast((prev) => prev.slice(0, -1));
+    setFlowHistoryFuture((prev) => {
+      const next = [beforeUndo, ...prev];
+      return next.length > MAX_FLOW_HISTORY ? next.slice(0, MAX_FLOW_HISTORY) : next;
+    });
+    const restored = cloneBlocksSnapshot(prevEntry.blocks);
+    setBlocks(restored);
+    setSelectedBlockId(prevEntry.selectedBlockId);
+    setBulkSelectedIds([]);
+  }, [blocks, flowHistoryPast, selectedBlockId]);
+
+  const redoFlowBlocksChange = useCallback(() => {
+    if (flowHistoryFuture.length === 0) return;
+    const nextEntry = flowHistoryFuture[0];
+    const beforeRedo: FlowHistoryEntry = {
+      blocks: cloneBlocksSnapshot(blocks),
+      selectedBlockId,
+    };
+    setFlowHistoryFuture((prev) => prev.slice(1));
+    setFlowHistoryPast((prev) => {
+      const next = [...prev, beforeRedo];
+      return next.length > MAX_FLOW_HISTORY
+        ? next.slice(next.length - MAX_FLOW_HISTORY)
+        : next;
+    });
+    const restored = cloneBlocksSnapshot(nextEntry.blocks);
+    setBlocks(restored);
+    setSelectedBlockId(nextEntry.selectedBlockId);
+    setBulkSelectedIds([]);
+  }, [blocks, flowHistoryFuture, selectedBlockId]);
+
   const resetToLanding = useCallback(() => {
     if (hasUnsavedChanges) {
       if (
@@ -261,13 +357,18 @@ export default function Home() {
     setLastSavedMarkdown(null);
     setCommitMetaByBlockId({});
     setBulkSelectedIds([]);
+    setFlowClipboard(null);
+    setDraggingBlockId(null);
+    setFlowDropGapIndex(null);
+    setPasteTargetGapIndex(null);
+    clearFlowHistory();
     setSlug("");
     setError(null);
     setFileSwitcherOpen(false);
     setHeaderTitleEditing(false);
     setEditorTutorialOpen(false);
     setEditorTutorialStep(0);
-  }, [hasUnsavedChanges]);
+  }, [clearFlowHistory, hasUnsavedChanges]);
 
   const dismissEditorTutorial = useCallback((markSeen: boolean) => {
     if (markSeen) markEditorTutorialSeenForSlug(slugRef.current);
@@ -278,32 +379,140 @@ export default function Home() {
   const editorTutorialSteps = useMemo<EditorTutorialStep[]>(
     () => [
       {
-        title: "Document Flow",
+        title: "Your document",
         description:
-          "Surgical Doc Studio splits your PRD into blocks (headers, paragraphs, lists). Click a block to select it for editing. Use the checkboxes when you want to verify several blocks at once.",
+          "Your writing is split into short pieces—like paragraphs or headings—that you can click one at a time. Drag the handle on the left to reorder. Use the dashed rows to insert a new piece, or paste what you cut or copied. Use the checkboxes to select several (or all) pieces when you want to verify them all at once.",
         targetRef: documentFlowSectionRef,
       },
       {
-        title: "Surgical Command Center",
+        title: "Ask the AI to tweak a piece",
         description:
-          "Only the selected block is sent to the model. Edit the source text, write a precise instruction, and run Surgical edit for small, safe changes. Review the diff before accepting.",
+          "Select a piece in your document, then use this panel. Tell the AI what to change in plain English. Only that piece is updated—the rest stays as you wrote it. Look at the preview, then accept it or undo.",
         targetRef: commandScrollRef,
       },
       {
-        title: "Review & GitHub",
+        title: "Review and save",
         description:
-          "When a block is ready, use Mark reviewed & sync at the bottom of this column to push changes. Configure repository and token under Settings first—verify and sync use that connection.",
+          "When you’re happy with a piece, you can mark it reviewed here. If you use GitHub, you can also save your work to your repo from these controls.",
         targetRef: tutorialAsideRef,
       },
       {
-        title: "Header & export",
+        title: "Export, settings, and going back",
         description:
-          "Use this bar for repo, branch, and the filename menu (rename, switch GitHub files, start fresh). Settings holds tokens and models. At the far right, Finalize & Export copies or downloads Markdown. Back (by the logo) returns to the start screen.",
-        targetRef: documentTitleAnchorRef,
+          "Along the top: your file name, the Settings button (for accounts and keys), and Finalize & Export to copy or download your work. Back returns to the welcome screen.",
+        targetRef: tutorialHeaderExportRef,
       },
     ],
     [],
   );
+
+  const getBlocksForCutCopy = useCallback((): SdsBlock[] => {
+    if (bulkSelectedIds.length > 0) {
+      const idSet = new Set(bulkSelectedIds);
+      return blocks.filter((b) => idSet.has(b.id));
+    }
+    if (selectedBlockId) {
+      const b = blocks.find((x) => x.id === selectedBlockId);
+      return b ? [b] : [];
+    }
+    return [];
+  }, [blocks, bulkSelectedIds, selectedBlockId]);
+
+  const copyFlowBlocks = useCallback(() => {
+    const sel = getBlocksForCutCopy();
+    if (sel.length === 0) return;
+    setFlowClipboard(sel.map((b) => ({ ...b })));
+  }, [getBlocksForCutCopy]);
+
+  const cutFlowBlocks = useCallback(() => {
+    const sel = getBlocksForCutCopy();
+    if (sel.length === 0) return;
+    setFlowClipboard(sel.map((b) => ({ ...b })));
+    const ids = new Set(sel.map((b) => b.id));
+    const nextBlocks = blocks.filter((b) => !ids.has(b.id));
+    commitFlowBlocksChange(nextBlocks);
+    setBulkSelectedIds([]);
+    const nextSelected =
+      selectedBlockId && !ids.has(selectedBlockId)
+        ? selectedBlockId
+        : (nextBlocks[0]?.id ?? null);
+    setSelectedBlockId(nextSelected);
+  }, [blocks, commitFlowBlocksChange, getBlocksForCutCopy, selectedBlockId]);
+
+  const deleteFlowBlock = useCallback(
+    (id: string) => {
+      const idx = blocks.findIndex((b) => b.id === id);
+      if (idx < 0) return;
+      const nextBlocks = blocks.filter((b) => b.id !== id);
+      const fallback = nextBlocks[idx] ?? nextBlocks[idx - 1] ?? null;
+      commitFlowBlocksChange(nextBlocks, fallback?.id ?? null);
+      setBulkSelectedIds((prev) => prev.filter((x) => x !== id));
+    },
+    [blocks, commitFlowBlocksChange],
+  );
+
+  const pasteFlowBlocksAtGap = useCallback(
+    (atGapIndex: number) => {
+      if (!flowClipboard || flowClipboard.length === 0) return;
+      const inserted = cloneBlocksForPaste(flowClipboard);
+      const nextBlocks = insertBlocksAt(blocks, atGapIndex, inserted);
+      commitFlowBlocksChange(nextBlocks, inserted[0]?.id ?? null);
+    },
+    [blocks, commitFlowBlocksChange, flowClipboard],
+  );
+
+  const insertEmptyAtGap = useCallback((atGapIndex: number) => {
+    const nb = createEmptyBlock();
+    const nextBlocks = insertBlocksAt(blocks, atGapIndex, [nb]);
+    commitFlowBlocksChange(nextBlocks, nb.id);
+  }, [blocks, commitFlowBlocksChange]);
+
+  useEffect(() => {
+    if (!inEditor) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement;
+      if (
+        t.nodeName === "TEXTAREA" ||
+        t.nodeName === "INPUT" ||
+        t.isContentEditable
+      ) {
+        return;
+      }
+      const cmd = e.metaKey || e.ctrlKey;
+      if (!cmd) return;
+      if (e.key === "c" || e.key === "C") {
+        e.preventDefault();
+        copyFlowBlocks();
+      } else if (e.key === "x" || e.key === "X") {
+        e.preventDefault();
+        cutFlowBlocks();
+      } else if (e.key === "v" || e.key === "V") {
+        if (!flowClipboard?.length) return;
+        e.preventDefault();
+        const gap =
+          pasteTargetGapIndex ??
+          (selectedIndex >= 0 ? selectedIndex + 1 : blocks.length);
+        pasteFlowBlocksAtGap(gap);
+      } else if (e.key === "z" || e.key === "Z") {
+        e.preventDefault();
+        if (e.shiftKey) redoFlowBlocksChange();
+        else undoFlowBlocksChange();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [
+    inEditor,
+    copyFlowBlocks,
+    cutFlowBlocks,
+    pasteFlowBlocksAtGap,
+    flowClipboard,
+    pasteTargetGapIndex,
+    selectedIndex,
+    blocks.length,
+    redoFlowBlocksChange,
+    undoFlowBlocksChange,
+  ]);
 
   const flowBusy =
     loading.kind === "parse" ||
@@ -397,6 +606,7 @@ export default function Home() {
               typeof data.selectedBlockId === "string" ? data.selectedBlockId : null;
             setSlug(slugVal);
             setBlocks(restored);
+            clearFlowHistory();
             setLastSavedMarkdown(
               md ?? blocksToMarkdown(restored),
             );
@@ -413,7 +623,7 @@ export default function Home() {
       /* ignore corrupt session */
     }
     setSessionRestored(true);
-  }, []);
+  }, [clearFlowHistory]);
 
   useEffect(() => {
     if (!sessionRestored) return;
@@ -551,6 +761,7 @@ export default function Home() {
     }
     setPending({});
     setBulkSelectedIds([]);
+    clearFlowHistory();
     const slugForStore = (opts?.slugOverride ?? slug).trim() || "_draft";
     let next: SdsBlock[];
     if (
@@ -1240,6 +1451,77 @@ export default function Home() {
     };
   }, [selectedBlockId]);
 
+  const renderFlowGap = (gapIndex: number) => {
+    const isDropTarget =
+      draggingBlockId !== null && flowDropGapIndex === gapIndex;
+    const isPasteTarget = pasteTargetGapIndex === gapIndex;
+    const canPaste = Boolean(flowClipboard?.length);
+    return (
+      <li key={`gap-${gapIndex}`} className="list-none">
+        <div
+          className={`group relative flex min-h-[1.4rem] items-center gap-2 py-1 transition ${
+            isDropTarget ? "bg-indigo-50/90" : ""
+          } ${isPasteTarget ? "rounded-sm bg-indigo-50/50" : ""}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "move";
+            setFlowDropGapIndex(gapIndex);
+          }}
+          onDrop={(e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData("text/plain");
+            if (!id) return;
+            const from = blocks.findIndex((b) => b.id === id);
+            if (from >= 0) {
+              const moved = moveBlockToGap(blocks, from, gapIndex);
+              commitFlowBlocksChange(moved, id);
+            }
+            setDraggingBlockId(null);
+            setFlowDropGapIndex(null);
+          }}
+          onClick={() => setPasteTargetGapIndex(gapIndex)}
+        >
+          <div
+            className={`pointer-events-none absolute left-10 right-3 top-1/2 h-px -translate-y-1/2 transition ${
+              isDropTarget
+                ? "bg-indigo-400"
+                : "bg-zinc-200/90 group-hover:bg-zinc-300"
+            }`}
+            aria-hidden
+          />
+          <div className="relative z-10 ml-2 flex items-center gap-1 text-zinc-400/90 opacity-80 transition group-hover:opacity-100">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                insertEmptyAtGap(gapIndex);
+              }}
+              title="Add paragraph"
+              aria-label="Add paragraph"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300/90 bg-white text-zinc-600 shadow-sm transition hover:border-zinc-400 hover:bg-zinc-50 hover:text-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-indigo-400"
+            >
+              <Plus className="h-3.5 w-3.5" />
+            </button>
+            {canPaste ? (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  pasteFlowBlocksAtGap(gapIndex);
+                }}
+                title={`Paste ${flowClipboard!.length} piece(s)`}
+                aria-label={`Paste ${flowClipboard!.length} piece(s)`}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-indigo-200/90 bg-white text-indigo-500 transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-indigo-400"
+              >
+                <ClipboardCopy className="h-3 w-3" />
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </li>
+    );
+  };
+
   return (
     <div className="grid min-h-dvh grid-rows-[auto_minmax(0,1fr)] bg-zinc-100 text-zinc-900 lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
       <header className="sticky top-0 z-20 shrink-0 border-b border-zinc-200 bg-white/90 backdrop-blur lg:static">
@@ -1261,9 +1543,17 @@ export default function Home() {
             </div>
             <div className="min-w-0">
               <h1 className="text-base font-semibold tracking-tight">Surgical Doc Studio</h1>
-              <p className="text-xs text-zinc-500">Context-safe block editing for PRDs</p>
+              <p className="text-xs text-zinc-500">
+                Markdown editing with AI—one section at a time
+              </p>
             </div>
           </div>
+          <div
+            ref={tutorialHeaderExportRef}
+            className={`flex min-w-0 flex-1 flex-col gap-2 lg:flex-row lg:items-center lg:gap-3 ${
+              !inEditor ? "justify-end" : "lg:justify-end"
+            }`}
+          >
           <div
             ref={githubHeaderRef}
             className={`relative flex min-w-0 flex-1 flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-2 ${
@@ -1485,7 +1775,7 @@ export default function Home() {
             ) : null}
           </div>
           {inEditor ? (
-            <div className="relative flex items-center gap-2">
+            <div className="relative flex shrink-0 items-center gap-2">
               <button
                 type="button"
                 disabled={busy}
@@ -1530,6 +1820,7 @@ export default function Home() {
               ) : null}
             </div>
           ) : null}
+          </div>
         </div>
       </header>
 
@@ -1573,7 +1864,7 @@ export default function Home() {
             ref={documentFlowSectionRef}
             className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm"
           >
-            <div className="flex shrink-0 items-center gap-3 border-b border-zinc-100 px-4 py-3">
+            <div className="flex shrink-0 items-center justify-between gap-3 border-b border-zinc-100 px-4 py-3">
               <label className="inline-flex cursor-pointer items-center gap-2">
                 <input
                   ref={selectAllCheckboxRef}
@@ -1596,6 +1887,28 @@ export default function Home() {
                   Document Flow ({blocks.length} blocks)
                 </span>
               </label>
+              <div className="inline-flex items-center gap-1 rounded-lg border border-zinc-200 bg-zinc-50 p-1">
+                <button
+                  type="button"
+                  onClick={undoFlowBlocksChange}
+                  disabled={flowHistoryPast.length === 0}
+                  title="Undo block change (Cmd/Ctrl+Z)"
+                  aria-label="Undo block change"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded text-zinc-600 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <Undo2 className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={redoFlowBlocksChange}
+                  disabled={flowHistoryFuture.length === 0}
+                  title="Redo block change (Shift+Cmd/Ctrl+Z)"
+                  aria-label="Redo block change"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded text-zinc-600 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                </button>
+              </div>
             </div>
             <div
               ref={documentFlowScrollRef}
@@ -1606,71 +1919,107 @@ export default function Home() {
                     const selected = b.id === selectedBlockId;
                     const bulkOn = bulkSelectedIds.includes(b.id);
                     return (
-                      <li
-                        key={b.id}
-                        ref={(el) => {
-                          blockRefs.current[b.id] = el;
-                        }}
-                        className={`group relative rounded-md border px-3 py-2 transition ${
-                          selected
-                            ? "border border-zinc-200 border-l-2 border-l-indigo-500 bg-indigo-50/30 shadow-md"
-                            : bulkOn
-                              ? b.verified
-                                ? "border-emerald-200 bg-emerald-50/50 ring-1 ring-blue-200/70"
-                                : "border-blue-200/80 bg-blue-50/50 ring-1 ring-blue-200/50"
-                              : b.verified
-                                ? "border-emerald-200 bg-emerald-50/40"
-                                : "border-transparent hover:border-zinc-200 hover:border-dashed hover:bg-zinc-50"
-                        } ${justVerifiedId === b.id ? "animate-pulse" : ""}`}
-                        onClick={() => setSelectedBlockId(b.id)}
-                      >
-                        <div className="mb-1 flex items-center gap-2 text-[11px] text-zinc-500">
-                          <input
-                            type="checkbox"
-                            checked={bulkOn}
-                            onChange={() => toggleBulkBlock(b.id)}
-                            onClick={(e) => e.stopPropagation()}
-                            className="h-3.5 w-3.5 shrink-0 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500"
-                            aria-label={`Select block ${idx + 1}`}
-                          />
-                          <span className="font-medium">#{idx + 1}</span>
-                          <span className="uppercase tracking-wide">{b.kind}</span>
-                          {b.verified ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-emerald-700">
-                              <CheckCircle2 className="h-3 w-3" />
-                              Verified
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-zinc-100 px-2 py-0.5 text-zinc-600">
-                              <CircleDashed className="h-3 w-3" />
-                              Draft
-                            </span>
-                          )}
-                        </div>
-                        <p className="whitespace-pre-wrap text-sm leading-7 text-zinc-800">
-                          {b.text}
-                        </p>
-                        {b.verified && (b.verifiedBy || b.verifiedAt) ? (
-                          <div className="mt-1 text-right text-[11px] text-zinc-500">
-                            {b.verifiedBy ? `@${b.verifiedBy}` : ""}
-                            {b.verifiedAt ? ` · ${b.verifiedAt.slice(0, 19)}Z` : ""}
-                          </div>
-                        ) : null}
-                        <button
-                          type="button"
-                          aria-label={`Open block ${idx + 1} in command center`}
-                          title="Edit in command center"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedBlockId(b.id);
+                      <Fragment key={b.id}>
+                        {renderFlowGap(idx)}
+                        <li
+                          key={b.id}
+                          ref={(el) => {
+                            blockRefs.current[b.id] = el;
                           }}
-                          className="absolute right-2 top-2 hidden rounded bg-white/90 p-1.5 text-zinc-700 shadow-sm ring-1 ring-zinc-200 group-hover:inline-flex"
+                          className={`group relative flex gap-2 rounded-md border px-3 py-2 transition ${
+                            selected
+                              ? "border border-zinc-200 border-l-2 border-l-indigo-500 bg-indigo-50/30 shadow-md"
+                              : bulkOn
+                                ? b.verified
+                                  ? "border-emerald-200 bg-emerald-50/50 ring-1 ring-blue-200/70"
+                                  : "border-blue-200/80 bg-blue-50/50 ring-1 ring-blue-200/50"
+                                : b.verified
+                                  ? "border-emerald-200 bg-emerald-50/40"
+                                  : "border-transparent hover:border-zinc-200 hover:border-dashed hover:bg-zinc-50"
+                          } ${justVerifiedId === b.id ? "animate-pulse" : ""}`}
+                          onClick={() => setSelectedBlockId(b.id)}
                         >
-                          <FlaskConical className="h-3.5 w-3.5" />
-                        </button>
-                      </li>
+                          <button
+                            type="button"
+                            aria-label={`Drag to reorder block ${idx + 1}`}
+                            title="Drag to reorder"
+                            draggable
+                            onDragStart={(e) => {
+                              e.dataTransfer.setData("text/plain", b.id);
+                              e.dataTransfer.effectAllowed = "move";
+                              setDraggingBlockId(b.id);
+                            }}
+                            onDragEnd={() => {
+                              setDraggingBlockId(null);
+                              setFlowDropGapIndex(null);
+                            }}
+                            onMouseDown={(e) => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
+                            className="mt-0.5 shrink-0 cursor-grab self-start rounded p-0.5 text-zinc-400 active:cursor-grabbing hover:bg-zinc-100 hover:text-zinc-600"
+                          >
+                            <GripVertical className="h-4 w-4" aria-hidden />
+                          </button>
+                          <div className="min-w-0 flex-1">
+                            <div className="mb-1 flex flex-wrap items-center gap-2 text-[11px] text-zinc-500">
+                              <input
+                                type="checkbox"
+                                checked={bulkOn}
+                                onChange={() => toggleBulkBlock(b.id)}
+                                onClick={(e) => e.stopPropagation()}
+                                className="h-3.5 w-3.5 shrink-0 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500"
+                                aria-label={`Select block ${idx + 1}`}
+                              />
+                              <span className="font-medium">#{idx + 1}</span>
+                              <span className="uppercase tracking-wide">
+                                {b.kind}
+                              </span>
+                              {b.verified ? (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-emerald-700">
+                                  <CheckCircle2 className="h-3 w-3" />
+                                  Verified
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1 rounded-full bg-zinc-100 px-2 py-0.5 text-zinc-600">
+                                  <CircleDashed className="h-3 w-3" />
+                                  Draft
+                                </span>
+                              )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  deleteFlowBlock(b.id);
+                                }}
+                                title="Delete block"
+                                aria-label={`Delete block ${idx + 1}`}
+                                className="ml-auto inline-flex h-6 w-6 items-center justify-center rounded text-zinc-400 transition hover:bg-red-50 hover:text-red-600"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" aria-hidden />
+                              </button>
+                            </div>
+                            <p className="whitespace-pre-wrap text-sm leading-7 text-zinc-800">
+                              {b.text.trim() ? (
+                                b.text
+                              ) : (
+                                <span className="italic text-zinc-400">
+                                  Empty — add text in the command center
+                                </span>
+                              )}
+                            </p>
+                            {b.verified && (b.verifiedBy || b.verifiedAt) ? (
+                              <div className="mt-1 text-right text-[11px] text-zinc-500">
+                                {b.verifiedBy ? `@${b.verifiedBy}` : ""}
+                                {b.verifiedAt
+                                  ? ` · ${b.verifiedAt.slice(0, 19)}Z`
+                                  : ""}
+                              </div>
+                            ) : null}
+                          </div>
+                        </li>
+                      </Fragment>
                     );
                   })}
+                  {renderFlowGap(blocks.length)}
                 </ul>
             </div>
           </div>

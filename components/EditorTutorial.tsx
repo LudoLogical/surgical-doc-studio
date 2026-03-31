@@ -24,6 +24,8 @@ const PAD = 10;
 const CARD_MIN_W = 280;
 const CARD_MAX_W = 400;
 const CARD_PAD_X = 24;
+const CARD_GAP = 16;
+const CARD_EST_H = 300;
 
 type LayoutState = {
   frame: { top: number; left: number; width: number; height: number };
@@ -31,6 +33,27 @@ type LayoutState = {
   cardLeft: number;
   cardWidth: number;
 };
+
+/** Dims only the viewport *outside* `frame` — no overlay on the hole so content stays clear. */
+function SpotlightScrim({ frame }: { frame: LayoutState["frame"] }) {
+  const t = frame.top;
+  const l = frame.left;
+  const h = frame.height;
+  const b = t + h;
+  const r = l + frame.width;
+
+  const scrim =
+    "fixed z-[204] bg-slate-950/55 backdrop-blur-[1.5px] pointer-events-auto";
+
+  return (
+    <>
+      <div className={scrim} style={{ top: 0, left: 0, right: 0, height: t }} aria-hidden />
+      <div className={scrim} style={{ top: b, left: 0, right: 0, bottom: 0 }} aria-hidden />
+      <div className={scrim} style={{ top: t, left: 0, width: l, height: h }} aria-hidden />
+      <div className={scrim} style={{ top: t, left: r, right: 0, height: h }} aria-hidden />
+    </>
+  );
+}
 
 export function EditorTutorial({
   open,
@@ -72,22 +95,46 @@ export function EditorTutorial({
       CARD_MIN_W,
       Math.min(CARD_MAX_W, vw - CARD_PAD_X),
     );
-    let cardLeft = frame.left + frame.width / 2 - cardWidth / 2;
-    cardLeft = Math.max(
-      12,
-      Math.min(cardLeft, vw - cardWidth - 12),
-    );
 
-    const CARD_EST_H = 300;
-    let cardTop = frame.top + frame.height + 16;
-    if (cardTop + CARD_EST_H > vh - 16) {
-      cardTop = frame.top - CARD_EST_H - 16;
-    }
-    if (cardTop < 16) {
-      cardTop = frame.top + frame.height + 16;
-    }
-    if (cardTop + CARD_EST_H > vh - 12) {
-      cardTop = Math.max(12, vh - CARD_EST_H - 12);
+    const fx = frame.left;
+    const fy = frame.top;
+    const fw = frame.width;
+    const fh = frame.height;
+    const frameRight = fx + fw;
+    const frameBottom = fy + fh;
+
+    const verticalCenter = () =>
+      Math.max(
+        CARD_GAP,
+        Math.min(fy + fh / 2 - CARD_EST_H / 2, vh - CARD_EST_H - CARD_GAP),
+      );
+
+    const clampLeft = (left: number) =>
+      Math.max(CARD_GAP, Math.min(left, vw - cardWidth - CARD_GAP));
+
+    const spaceRight = vw - frameRight - CARD_GAP;
+    const spaceLeft = fx - CARD_GAP;
+
+    let cardLeft: number;
+    let cardTop: number;
+
+    /** Prefer left/right of the highlight so the card never sits on top of it. */
+    if (spaceRight >= cardWidth) {
+      cardLeft = clampLeft(frameRight + CARD_GAP);
+      cardTop = verticalCenter();
+    } else if (spaceLeft >= cardWidth) {
+      cardLeft = clampLeft(fx - cardWidth - CARD_GAP);
+      cardTop = verticalCenter();
+    } else {
+      cardTop = frameBottom + CARD_GAP;
+      if (cardTop + CARD_EST_H > vh - CARD_GAP) {
+        cardTop = fy - CARD_EST_H - CARD_GAP;
+      }
+      cardTop = Math.max(
+        CARD_GAP,
+        Math.min(cardTop, vh - CARD_EST_H - CARD_GAP),
+      );
+      cardLeft = clampLeft(fx + fw / 2 - cardWidth / 2);
     }
 
     setLayout({ frame, cardTop, cardLeft, cardWidth });
@@ -132,10 +179,14 @@ export function EditorTutorial({
       aria-describedby="sds-tutorial-desc"
       style={{ isolation: "isolate" }}
     >
-      <div
-        className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm pointer-events-auto"
-        aria-hidden
-      />
+      {layout ? (
+        <SpotlightScrim frame={layout.frame} />
+      ) : (
+        <div
+          className="absolute inset-0 z-[204] bg-slate-950/55 backdrop-blur-[1.5px] pointer-events-auto"
+          aria-hidden
+        />
+      )}
       {layout ? (
         <div
           className="pointer-events-none absolute z-[205] rounded-xl border-2 border-indigo-400 shadow-[0_0_0_4px_rgba(129,140,248,0.3)]"

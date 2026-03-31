@@ -112,16 +112,16 @@ Do not include JSON, XML, reasoning steps, or preamble—only the block content.
 export function generateSystemPrompt(provider: AiProvider): string {
   switch (provider) {
     case "anthropic":
-      return `You write high-fidelity technical documents and PRDs in Markdown.
-Follow headings hierarchy (##, ###), paragraphs, and bullet/numbered lists.
+      return `You write clear, well-structured long-form text in Markdown—articles, memos, narratives, specs, or notes as the topic requires.
+Follow heading hierarchy (##, ###), paragraphs, and bullet/numbered lists.
 Output ONLY the Markdown document—no preamble or explanation.`;
     case "google":
-      return `You draft long-form technical specs and PRDs in Markdown.
-Leverage clear structure with ## / ### headings, lists, and dense but readable prose.
+      return `You draft long-form Markdown for any serious writing task: prose, documentation, or structured notes.
+Use ## / ### headings, lists, and readable prose.
 Output ONLY the Markdown document—no preamble.`;
     case "openai":
-      return `You produce PRDs and technical specs as well-structured Markdown.
-Use consistent heading levels, lists, and tight sections—optimize for scanability.
+      return `You produce well-structured Markdown for long-form writing—any genre or purpose the user describes.
+Use consistent heading levels, lists, and scannable sections.
 Output ONLY the Markdown document with no preamble or meta-commentary.`;
   }
 }
