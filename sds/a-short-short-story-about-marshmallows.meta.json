@@ -1,7 +1,7 @@
 {
   "slug": "a-short-short-story-about-marshmallows",
   "branch": "main",
-  "exportedAt": "2026-03-31T00:53:23.453Z",
+  "exportedAt": "2026-03-31T00:54:02.871Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "83b0bd6c-8a1e-4bca-ab81-0137561a2919",
@@ -57,19 +57,25 @@
       "id": "2fcadd3e-930a-44ad-8823-a26d9fd351e6",
       "kind": "paragraph",
       "text": "Inside, only one remained.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-31T00:54:01.642Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "4f05e6a9-aa15-4327-b91d-e8cf0bc7cab2",
       "kind": "header",
       "text": "### Part II: The Dilemma",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-31T00:54:01.642Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "a6e1c5f9-55ce-4862-9c41-fb3020197178",
       "kind": "paragraph",
       "text": "Tommy stood in the kitchen, golden afternoon light streaming through the window, warming the linoleum beneath his feet. The marshmallow sat in his palm—soft, white, perfect. A small cylinder of sugar and air that weighed almost nothing but somehow felt heavy with possibility.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-03-31T00:54:01.642Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "98afd669-0c82-47a3-af9e-25dce7c353b5",
