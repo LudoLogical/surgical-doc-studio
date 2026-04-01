@@ -1,7 +1,7 @@
 {
   "slug": "write-about-the-troubles-of-being-a-new",
   "branch": "main",
-  "exportedAt": "2026-04-01T19:02:20.246Z",
+  "exportedAt": "2026-04-01T19:02:44.697Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "dfbb98d0-6304-4737-aa57-bd875639321e",
@@ -16,7 +16,9 @@
       "id": "dfbb98d0-6304-4737-aa57-bd875639321e",
       "kind": "header",
       "text": "## The New Designer's Prototyping Paradox",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-04-01T19:02:43.987Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "cdc78346-6a7b-4edb-99d7-0455ae00633e",
@@ -30,7 +32,9 @@
       "id": "7fe991d9-76e6-46ca-b6af-dbfe53f6268b",
       "kind": "paragraph",
       "text": "Employers want to see polished, interactive prototypes that demonstrate user flows, micro-interactions, and edge cases. They want Figma files that showcase component libraries, design systems, and responsive breakpoints. But as a new designer, you're still learning these tools while simultaneously trying to prove you've mastered them.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-04-01T19:02:43.987Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "ee1530bf-1eb0-4b34-aa50-d45a42dc1b90",
@@ -42,7 +46,9 @@
       "id": "3b255bf0-c32a-4014-a688-9f78bfdec7ef",
       "kind": "paragraph",
       "text": "Then there's the technical gap. Senior designers reference prototyping best practices you've never heard of. Your portfolio pieces, created in isolation, suddenly feel amateur compared to the collaborative, real-world projects you're competing against.",
-      "verified": false
+      "verified": true,
+      "verifiedAt": "2026-04-01T19:02:43.987Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "ce87a515-9ef5-4d81-b321-68f66442a8a4",
