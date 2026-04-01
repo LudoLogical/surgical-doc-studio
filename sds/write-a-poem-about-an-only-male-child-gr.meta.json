@@ -1,0 +1,215 @@
+{
+  "slug": "write-a-poem-about-an-only-male-child-gr",
+  "branch": "main",
+  "exportedAt": "2026-04-01T18:14:14.185Z",
+  "verifiedOnly": false,
+  "exportedBlockIds": [
+    "5e2a8a80-5519-4610-a1a7-4b6ed6caf75b",
+    "83ce99af-4874-4525-8a52-c26a3f026987",
+    "1ef5b100-fb09-4953-8911-1cd70d59c112",
+    "2ed0e031-ccb2-4b91-9ecf-29cacf3bdc94",
+    "fdc97edc-dc7c-446e-880c-e59588c21b75",
+    "151b678f-19df-45a3-b42f-8b24d1d4ea9d",
+    "7934a59b-37c1-4dd1-b449-eae0dfce6995",
+    "96b9e14e-1a43-49c2-9956-dcc1ed511ce2",
+    "19afddbb-ded1-45f9-82f0-d1af470b04d6",
+    "a5147232-0425-42c4-8c7a-b53adf4e44c2",
+    "ec230371-b59c-48d4-a645-b7eaad32738d",
+    "6598eceb-d4be-4e4c-b9e0-d3fdd23d2f5b",
+    "77e3b920-6ad0-4c8f-bac9-1081a821ff37",
+    "4fd64655-8985-4cb7-850c-37250b5641a6",
+    "07e25253-6f2c-434e-b218-73befdd48af4",
+    "5cc10313-2333-430b-b12b-d7a6ca29c157",
+    "32ca3575-e50e-41dc-9aa1-5f565c900ed9",
+    "aaf4eb87-03f4-4c5a-a2b3-883e09542f6b",
+    "48be10e1-35e5-4d0c-8c9e-87f6010d92da",
+    "e5f03bd6-c6ed-4616-a721-37b3f124fb0a",
+    "68ca2a99-6bbe-4a82-9742-3eceb8465ee4",
+    "d8689540-6283-441a-895b-2ed4e8638e0f",
+    "95204d00-c335-4e16-85c9-98711391fa3e",
+    "6b625bcf-b6ee-4649-b5d9-df0c1a926e9e",
+    "03400dcf-ff0e-48d6-983c-f2d5c0f2b3b5",
+    "7e187136-35d5-4478-844f-b65e292e232e",
+    "c03e88a3-544a-4868-8886-3a604588183b",
+    "bc9de8c3-10ff-4208-bba2-1966fdcf9d27",
+    "bee44aaa-fb8d-426c-aaa4-794ca01b04bf"
+  ],
+  "blocks": [
+    {
+      "id": "5e2a8a80-5519-4610-a1a7-4b6ed6caf75b",
+      "kind": "header",
+      "text": "# The Only Son",
+      "verified": false
+    },
+    {
+      "id": "83ce99af-4874-4525-8a52-c26a3f026987",
+      "kind": "header",
+      "text": "## A Poem",
+      "verified": false
+    },
+    {
+      "id": "1ef5b100-fb09-4953-8911-1cd70d59c112",
+      "kind": "paragraph",
+      "text": "In the house on the hillside where persimmons grow,  \none boy learned to carry what generations bestow—  \nnot just his name, but the names before,  \ngrandfather's hopes and the weight they bore.",
+      "verified": false
+    },
+    {
+      "id": "2ed0e031-ccb2-4b91-9ecf-29cacf3bdc94",
+      "kind": "paragraph",
+      "text": "His mother folded *hanbok* with careful hands,  \nwhispered dreams in a tongue that understands  \nhow a single son becomes a living bridge  \nbetween the ancestors' graves and the mountain ridge.",
+      "verified": false
+    },
+    {
+      "id": "fdc97edc-dc7c-446e-880c-e59588c21b75",
+      "kind": "paragraph",
+      "text": "*Adeul-ah,* they called—my son, my son—  \nyou are the continuation, the only one.  \nAt *doljanchi* they placed the thread, the book, the gold,  \nchoosing his future before stories could be told.",
+      "verified": false
+    },
+    {
+      "id": "151b678f-19df-45a3-b42f-8b24d1d4ea9d",
+      "kind": "header",
+      "text": "### Morning Lessons",
+      "verified": false
+    },
+    {
+      "id": "7934a59b-37c1-4dd1-b449-eae0dfce6995",
+      "kind": "paragraph",
+      "text": "While his cousins—daughters all—learned to yield,  \nhe sat at the table, his position sealed,  \nfirst bowl of rice, the choicest piece of fish,  \nuncomfortable crown in every dish.",
+      "verified": false
+    },
+    {
+      "id": "96b9e14e-1a43-49c2-9956-dcc1ed511ce2",
+      "kind": "paragraph",
+      "text": "His father's silence was a kind of speech,  \nexpectations floating just beyond his reach—  \nSeoul National University, a respectable career,  \nmarriage, grandsons, keeping lineage clear.",
+      "verified": false
+    },
+    {
+      "id": "19afddbb-ded1-45f9-82f0-d1af470b04d6",
+      "kind": "header",
+      "text": "### The Burden of Singular",
+      "verified": false
+    },
+    {
+      "id": "a5147232-0425-42c4-8c7a-b53adf4e44c2",
+      "kind": "paragraph",
+      "text": "He grew up knowing he could not be lost,  \ncould not rebel without unbearable cost.  \nHis sisters had each other's whispered jokes;  \nhe had the solitude that tradition evokes.",
+      "verified": false
+    },
+    {
+      "id": "ec230371-b59c-48d4-a645-b7eaad32738d",
+      "kind": "paragraph",
+      "text": "In *hagwon* rooms past midnight's chime,  \nstudying futures not entirely his to define,  \nwhile his mother burned incense at the family shrine,  \npraying he'd succeed on destiny's line.",
+      "verified": false
+    },
+    {
+      "id": "6598eceb-d4be-4e4c-b9e0-d3fdd23d2f5b",
+      "kind": "header",
+      "text": "### Between Two Worlds",
+      "verified": false
+    },
+    {
+      "id": "77e3b920-6ad0-4c8f-bac9-1081a821ff37",
+      "kind": "paragraph",
+      "text": "At *Chuseok*, he bowed to ancestors' portraits lined,  \nfelt their eyes assess what they might find—  \nwould he honor what they'd built with calloused hands?  \nWould he fulfill what duty demands?",
+      "verified": false
+    },
+    {
+      "id": "4fd64655-8985-4cb7-850c-37250b5641a6",
+      "kind": "paragraph",
+      "text": "But in secret moments, by the Han River's flow,  \nhe wondered who he'd be if he could simply grow  \ninto himself, unencumbered and free,  \nnot a branch, but a whole separate tree.",
+      "verified": false
+    },
+    {
+      "id": "07e25253-6f2c-434e-b218-73befdd48af4",
+      "kind": "header",
+      "text": "### The Modern Ache",
+      "verified": false
+    },
+    {
+      "id": "5cc10313-2333-430b-b12b-d7a6ca29c157",
+      "kind": "paragraph",
+      "text": "His friends with siblings shared the load,  \nsplit the inheritance, the ancestral road.  \nBut he alone would tend his parents' aging years,  \nmanage their hopes, their health, their fears.",
+      "verified": false
+    },
+    {
+      "id": "32ca3575-e50e-41dc-9aa1-5f565c900ed9",
+      "kind": "paragraph",
+      "text": "Korea changing faster than tradition bends—  \nskyscrapers rising where rice paddies end,  \nyet in his chest, the old and new collide:  \n*filial duty* and the urge to decide.",
+      "verified": false
+    },
+    {
+      "id": "aaf4eb87-03f4-4c5a-a2b3-883e09542f6b",
+      "kind": "header",
+      "text": "### The Question He Carries",
+      "verified": false
+    },
+    {
+      "id": "48be10e1-35e5-4d0c-8c9e-87f6010d92da",
+      "kind": "paragraph",
+      "text": "What if he disappoints? What if he fails?  \nThe only son—where going off-trail  \nmeans not just his falling, but a lineage undone,  \ncenturies of continuity in a single son.",
+      "verified": true,
+      "verifiedAt": "2026-04-01T18:14:13.500Z",
+      "verifiedBy": "cameronjaede-coder"
+    },
+    {
+      "id": "e5f03bd6-c6ed-4616-a721-37b3f124fb0a",
+      "kind": "paragraph",
+      "text": "And yet—",
+      "verified": false
+    },
+    {
+      "id": "68ca2a99-6bbe-4a82-9742-3eceb8465ee4",
+      "kind": "header",
+      "text": "### And Yet",
+      "verified": false
+    },
+    {
+      "id": "d8689540-6283-441a-895b-2ed4e8638e0f",
+      "kind": "paragraph",
+      "text": "There is honor in the carrying, too,  \nin being the one they turn to,  \nin grandmother's hand upon his head,  \nin the unspoken love in what's left unsaid.",
+      "verified": false
+    },
+    {
+      "id": "95204d00-c335-4e16-85c9-98711391fa3e",
+      "kind": "paragraph",
+      "text": "The only son is not only burden's child,  \nbut also the beloved, the precious, the reconciled.  \nHis existence itself a kind of poem,  \nwritten in the space between duty and home.",
+      "verified": false
+    },
+    {
+      "id": "6b625bcf-b6ee-4649-b5d9-df0c1a926e9e",
+      "kind": "header",
+      "text": "## Epilogue: The Man He Becomes",
+      "verified": false
+    },
+    {
+      "id": "03400dcf-ff0e-48d6-983c-f2d5c0f2b3b5",
+      "kind": "paragraph",
+      "text": "Perhaps he'll find a way to be  \nboth keeper of tradition and utterly free,  \nto honor where he's from while choosing where he'll go—  \nthe only son, in Seoul's neon glow,",
+      "verified": false
+    },
+    {
+      "id": "7e187136-35d5-4478-844f-b65e292e232e",
+      "kind": "paragraph",
+      "text": "bowing to ancestors on holy days,  \nbut walking forward in his own ways,  \ncarrying the names, yes, but also his own story,  \na singular life, complex and contradictory.",
+      "verified": false
+    },
+    {
+      "id": "c03e88a3-544a-4868-8886-3a604588183b",
+      "kind": "paragraph",
+      "text": "In the house on the hillside where persimmons grow,  \nhe learns what only sons eventually know:  \nYou can be the bridge and still be whole,  \ntradition's vessel with an individual soul.",
+      "verified": false
+    },
+    {
+      "id": "bc9de8c3-10ff-4208-bba2-1966fdcf9d27",
+      "kind": "paragraph",
+      "text": "---",
+      "verified": false
+    },
+    {
+      "id": "bee44aaa-fb8d-426c-aaa4-794ca01b04bf",
+      "kind": "paragraph",
+      "text": "*For every only son who has learned to balance*  \n*the weight of lineage with the lightness of becoming*",
+      "verified": false
+    }
+  ]
+}
