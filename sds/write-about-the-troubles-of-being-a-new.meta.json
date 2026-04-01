@@ -1,7 +1,7 @@
 {
   "slug": "write-about-the-troubles-of-being-a-new",
   "branch": "main",
-  "exportedAt": "2026-04-01T19:03:28.714Z",
+  "exportedAt": "2026-04-01T19:03:36.096Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "dfbb98d0-6304-4737-aa57-bd875639321e",
@@ -56,9 +56,7 @@
       "id": "ce87a515-9ef5-4d81-b321-68f66442a8a4",
       "kind": "paragraph",
       "text": "The reality? This is where every designer begins. That flawed first attempt isn't failure—it's your foundation. Every revision, every piece of feedback, every rejection shapes your craft. The difficulty isn't evidence of inadequacy—it's the process of transformation itself.",
-      "verified": true,
-      "verifiedAt": "2026-04-01T19:03:28.011Z",
-      "verifiedBy": "cameronjaede-coder"
+      "verified": false
     }
   ]
 }
