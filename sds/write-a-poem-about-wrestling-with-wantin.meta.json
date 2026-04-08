@@ -1,0 +1,215 @@
+{
+  "slug": "write-a-poem-about-wrestling-with-wantin",
+  "branch": "main",
+  "exportedAt": "2026-04-08T02:17:31.752Z",
+  "verifiedOnly": false,
+  "exportedBlockIds": [
+    "66346815-8b18-438a-8fa7-6d7e5c8ff70e",
+    "8ed6ca5c-94a5-426d-b0ee-97ed9c5ee931",
+    "b7683a46-a708-4554-9362-60066778a382",
+    "92a1c894-b3cd-47db-86da-f9579c798f5a",
+    "f351fe04-921a-4507-b0e0-e9ea8f116bdc",
+    "d2844a45-7f19-432b-b18d-56cb29677a08",
+    "e05b8c7f-7e87-42ee-9aa8-76244b03e0b9",
+    "d7537a06-fe53-41b1-8ce9-c41a57c5c905",
+    "af2a0951-9b53-4069-b97f-5a419a99ab29",
+    "31f82f11-53f2-4fe4-9496-fdd0b7d5dd3e",
+    "a818dcd6-9760-4638-9d6c-88f45025e7fa",
+    "01e5f114-a6fd-4120-897d-bfa6d724ac45",
+    "96c86c37-52c3-4ec0-aab9-bd4d111fdebe",
+    "ec093abb-3354-49c9-9018-04849d9e725e",
+    "9dcc9dc6-2443-4732-b3dc-bb7738ff343f",
+    "918a13af-91f9-4046-9497-eef7102f90c8",
+    "1058d836-16e6-425a-bf0a-bc6a5a8e2031",
+    "f15d5a4a-370b-419f-951e-eedfcd543317",
+    "c02d1196-3aaa-4f1b-887d-449f21f0cd9d",
+    "2fb2eb48-3a33-4da8-a199-e62f3200bb93",
+    "523be6db-1803-495d-aec2-63cf00d4e1c9",
+    "2cdcc2ea-a882-442d-86a2-08bf69db7fc5",
+    "47be2e33-3c94-49d9-88ec-5349f8fb7654",
+    "3677acc9-f7c2-495a-856d-0d22eacbe342",
+    "500473f3-9053-46cb-8b3a-da9b7122add9",
+    "e47793df-b5bc-4e08-b49d-8b3d9d0b1104",
+    "53ccda83-f315-4256-b13d-5af8bb5e24d0",
+    "5d27a22b-e58b-448b-9f7d-cc34ffdb819a",
+    "c8466913-9bfc-4bec-a7b6-358e3b622690"
+  ],
+  "blocks": [
+    {
+      "id": "66346815-8b18-438a-8fa7-6d7e5c8ff70e",
+      "kind": "header",
+      "text": "# The Weight of Light",
+      "verified": false
+    },
+    {
+      "id": "8ed6ca5c-94a5-426d-b0ee-97ed9c5ee931",
+      "kind": "header",
+      "text": "## I.",
+      "verified": false
+    },
+    {
+      "id": "b7683a46-a708-4554-9362-60066778a382",
+      "kind": "paragraph",
+      "text": "I dream in shapes, in the curve of interface—  \nhow a button might breathe beneath a finger,  \nhow intelligence could wear a gentler face.  \nThe workshop of my mind hums with desire:  \nto build the bridge between machine and meaning,  \nto craft the questions algorithms learn to ask,  \nto shape the way we speak with silicon dreaming.",
+      "verified": true,
+      "verifiedAt": "2026-04-08T02:17:30.867Z",
+      "verifiedBy": "cameronjaede-coder"
+    },
+    {
+      "id": "92a1c894-b3cd-47db-86da-f9579c798f5a",
+      "kind": "paragraph",
+      "text": "But then—the other numbers. The true cost.",
+      "verified": false
+    },
+    {
+      "id": "f351fe04-921a-4507-b0e0-e9ea8f116bdc",
+      "kind": "header",
+      "text": "## II.",
+      "verified": false
+    },
+    {
+      "id": "d2844a45-7f19-432b-b18d-56cb29677a08",
+      "kind": "paragraph",
+      "text": "Each model trained is a forest of computation:  \nservers stacked in rows like redwoods made of steel,  \ntheir roots not soil but cables, their exhalation  \nnot oxygen but heat that rises, real  \nand relentless. Somewhere, a cooling tower  \nreleases steam into the morning air.  \nSomewhere, a river warms. Each training hour  \nburns bright with watts I'll never see from here.",
+      "verified": false
+    },
+    {
+      "id": "e05b8c7f-7e87-42ee-9aa8-76244b03e0b9",
+      "kind": "header",
+      "text": "## III.",
+      "verified": false
+    },
+    {
+      "id": "d7537a06-fe53-41b1-8ce9-c41a57c5c905",
+      "kind": "paragraph",
+      "text": "They say a single model's carbon cost  \ncan equal several cars across their lifetime—  \nthe churning, learning, iterating, loss  \nfunctions optimizing toward their prime  \nwhile glaciers calve and tundra starts to thaw.  \nI wonder: is my contribution complicit?  \nDoes every design decision that I draw  \nrest on foundations more extractive than explicit?",
+      "verified": false
+    },
+    {
+      "id": "af2a0951-9b53-4069-b97f-5a419a99ab29",
+      "kind": "header",
+      "text": "## IV.",
+      "verified": false
+    },
+    {
+      "id": "31f82f11-53f2-4fe4-9496-fdd0b7d5dd3e",
+      "kind": "paragraph",
+      "text": "And yet—and yet—the possibility persists:  \nthat AI might help us model climate systems,  \noptimize the grid, that in its neural mists  \nwe'll find the patterns that our wisdom missed.  \nThat thoughtful design could make these tools more lean,  \nmore purposeful, more careful with their power.  \nThat not to build is not to keep things clean,  \nbut to abandon influence in a crucial hour.",
+      "verified": false
+    },
+    {
+      "id": "a818dcd6-9760-4638-9d6c-88f45025e7fa",
+      "kind": "header",
+      "text": "## V.",
+      "verified": false
+    },
+    {
+      "id": "01e5f114-a6fd-4120-897d-bfa6d724ac45",
+      "kind": "paragraph",
+      "text": "So here I stand, a designer at the threshold,  \none foot in wonder, one in doubt's cold room.  \nThe servers hum their binary manifold.  \nThe planet warms. The future wants a loom  \non which to weave itself—but from what thread?  \nCan I pursue this craft with conscience clear,  \nor am I adding to the gathering dread,  \none elegant interface at a time, each year?",
+      "verified": false
+    },
+    {
+      "id": "96c86c37-52c3-4ec0-aab9-bd4d111fdebe",
+      "kind": "header",
+      "text": "## VI.",
+      "verified": false
+    },
+    {
+      "id": "ec093abb-3354-49c9-9018-04849d9e725e",
+      "kind": "paragraph",
+      "text": "Perhaps the wrestling *is* the work itself—  \nto never look away from what it costs,  \nto keep the energy reports on my desk's shelf  \nbeside the user research, gains and loss.  \nTo advocate for smaller, sharper models,  \nfor training runs that justify their burn,  \nfor designs that make these systems less than godlike:  \nuseful, bounded, questioned at each turn.",
+      "verified": false
+    },
+    {
+      "id": "9dcc9dc6-2443-4732-b3dc-bb7738ff343f",
+      "kind": "header",
+      "text": "## VII.",
+      "verified": false
+    },
+    {
+      "id": "918a13af-91f9-4046-9497-eef7102f90c8",
+      "kind": "paragraph",
+      "text": "Perhaps the question isn't whether *to* create,  \nbut *how*—with what humility and care,  \nwith what attention to the true weight  \nof every computational layer.  \nTo design with the planet in the room,  \nto make the environmental cost visible,  \nto choose—again, again—the harder path of zoom:  \nmore focused tools, more purposeful, more sensible.",
+      "verified": false
+    },
+    {
+      "id": "1058d836-16e6-425a-bf0a-bc6a5a8e2031",
+      "kind": "header",
+      "text": "## VIII.",
+      "verified": false
+    },
+    {
+      "id": "f15d5a4a-370b-419f-951e-eedfcd543317",
+      "kind": "paragraph",
+      "text": "I cannot solve this by abstaining, nor  \nby building recklessly toward some bright mirage.  \nThe tension is the territory. The war  \nbetween my passion and my conscience, large  \nand constant, is perhaps the only honest place  \nfrom which to work. Not resolution, but  \nthe daily reckoning, the willingness to face  \nwhat Burns with every gradient descent's cut.",
+      "verified": false
+    },
+    {
+      "id": "c02d1196-3aaa-4f1b-887d-449f21f0cd9d",
+      "kind": "header",
+      "text": "## IX.",
+      "verified": false
+    },
+    {
+      "id": "2fb2eb48-3a33-4da8-a199-e62f3200bb93",
+      "kind": "paragraph",
+      "text": "So I will design—but not in innocence.  \nI'll carry both the wonder and the cost,  \nlet neither dominate my inner sense  \nof what this moment asks, what might be lost,  \nwhat might be saved by thoughtful intervention.  \nI'll make my models smaller where I can.  \nI'll question every feature's true intention.  \nI'll measure what I make by more than what it ran.",
+      "verified": false
+    },
+    {
+      "id": "523be6db-1803-495d-aec2-63cf00d4e1c9",
+      "kind": "header",
+      "text": "## X.",
+      "verified": false
+    },
+    {
+      "id": "2cdcc2ea-a882-442d-86a2-08bf69db7fc5",
+      "kind": "paragraph",
+      "text": "The servers hum. The planet warms. I code.  \nSomewhere between denial and despair,  \nI'll try to walk a more considered road:  \neyes open to the burden in the air,  \nhands moving still to shape what might emerge—  \nnot savior, not destroyer, but a person  \nwho chose to wrestle with the urgent urge  \nto build, while knowing building makes things worsen.",
+      "verified": false
+    },
+    {
+      "id": "47be2e33-3c94-49d9-88ec-5349f8fb7654",
+      "kind": "header",
+      "text": "## XI.",
+      "verified": false
+    },
+    {
+      "id": "3677acc9-f7c2-495a-856d-0d22eacbe342",
+      "kind": "paragraph",
+      "text": "Unless.",
+      "verified": false
+    },
+    {
+      "id": "500473f3-9053-46cb-8b3a-da9b7122add9",
+      "kind": "paragraph",
+      "text": "Unless the wrestling changes how we build.  \nUnless the guilt becomes a guide, not paralysis.  \nUnless the carbon budget is fulfilled  \nby renewable energy, by analysis  \nthat makes efficiency the core concern.  \nUnless designers like me make the choice  \nto measure impact, question, and unlearn  \nthe myth that progress is a single voice.",
+      "verified": false
+    },
+    {
+      "id": "e47793df-b5bc-4e08-b49d-8b3d9d0b1104",
+      "kind": "header",
+      "text": "## XII.",
+      "verified": false
+    },
+    {
+      "id": "53ccda83-f315-4256-b13d-5af8bb5e24d0",
+      "kind": "paragraph",
+      "text": "I dream in vectors still. But now I dream  \nin carbon too, in water, heat, and land.  \nMy interfaces must serve a broader scheme  \nthan elegance—they must help us understand  \nand navigate with less, with clearer sight,  \nwith tools that justify their hungry glow.  \nI'll pursue this work, but not in pure delight—  \nin tension, always, with what I know.",
+      "verified": false
+    },
+    {
+      "id": "5d27a22b-e58b-448b-9f7d-cc34ffdb819a",
+      "kind": "paragraph",
+      "text": "---",
+      "verified": false
+    },
+    {
+      "id": "c8466913-9bfc-4bec-a7b6-358e3b622690",
+      "kind": "paragraph",
+      "text": "*For every designer who has felt the pull  \nbetween creation and its consequence,  \nbetween the empty page and the too-full  \nplanet: may we work with both immense  \nambition and restraint, with joy and grief,  \nand may our wrestling make our work more true—  \nnot comfortable in easy belief,  \nbut awake to what our choices do.*",
+      "verified": false
+    }
+  ]
+}
