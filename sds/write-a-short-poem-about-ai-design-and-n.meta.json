@@ -1,0 +1,61 @@
+{
+  "slug": "write-a-short-poem-about-ai-design-and-n",
+  "branch": "main",
+  "exportedAt": "2026-04-08T02:31:33.449Z",
+  "verifiedOnly": false,
+  "exportedBlockIds": [
+    "12d39bc3-ec59-4951-b227-fd44b03149c1",
+    "75dda112-a9db-49c3-9de2-7bd1004679fb",
+    "7020aaed-7c2c-47a7-a360-352323fa1412",
+    "7a4a8bed-d077-4741-a715-f1e599e6d4bf",
+    "c1b16a5d-b880-462a-8c2b-c79241fd419f",
+    "c9659697-fb39-4bed-bc15-f5b022d1cd26",
+    "3e35c4f4-336f-4dd5-90de-3ba9a5b18133"
+  ],
+  "blocks": [
+    {
+      "id": "12d39bc3-ec59-4951-b227-fd44b03149c1",
+      "kind": "header",
+      "text": "# Silicon Roots",
+      "verified": false
+    },
+    {
+      "id": "75dda112-a9db-49c3-9de2-7bd1004679fb",
+      "kind": "paragraph",
+      "text": "In woods deep where birdsong rings,  \nA server farm hums, cooling fans like wings—  \nEach prompt, each pixel, each synthetic mind  \nBurns watts that leave the living world behind.",
+      "verified": true,
+      "verifiedAt": "2026-04-08T02:31:32.707Z",
+      "verifiedBy": "cameronjaede-coder"
+    },
+    {
+      "id": "7020aaed-7c2c-47a7-a360-352323fa1412",
+      "kind": "paragraph",
+      "text": "We shape intelligence from sand and stone,  \nTrain neural nets till patterns bloom and grown,  \nYet every thought we teach machines to think  \nDemands the glaciers melt, the coastlines shrink.",
+      "verified": false
+    },
+    {
+      "id": "7a4a8bed-d077-4741-a715-f1e599e6d4bf",
+      "kind": "paragraph",
+      "text": "The data centers sprawl like concrete reefs,  \nConsuming rivers, trading roots for griefs—  \nWhile algorithms learn to paint a tree,  \nReal saplings gasp beneath our energy.",
+      "verified": false
+    },
+    {
+      "id": "c1b16a5d-b880-462a-8c2b-c79241fd419f",
+      "kind": "paragraph",
+      "text": "Can we design a mind that learns to care,  \nThat counts the cost of carbon in the air?  \nTo architect not just what's fast and bright,  \nBut systems woven with the earth in sight?",
+      "verified": false
+    },
+    {
+      "id": "c9659697-fb39-4bed-bc15-f5b022d1cd26",
+      "kind": "paragraph",
+      "text": "For intelligence divorced from nature's law  \nIs wisdom built on hubris, cracked and raw—  \nTrue design remembers: we are not apart  \nFrom soil and sky—they beat within our heart.",
+      "verified": false
+    },
+    {
+      "id": "3e35c4f4-336f-4dd5-90de-3ba9a5b18133",
+      "kind": "paragraph",
+      "text": "Let code and chlorophyll together grow,  \nLet processing respect the rivers' flow,  \nSo when machines awaken, they may see  \nThe world that gave them life—and let it be.",
+      "verified": false
+    }
+  ]
+}
