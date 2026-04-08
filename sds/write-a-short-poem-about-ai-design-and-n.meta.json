@@ -1,7 +1,7 @@
 {
   "slug": "write-a-short-poem-about-ai-design-and-n",
   "branch": "main",
-  "exportedAt": "2026-04-08T02:31:33.449Z",
+  "exportedAt": "2026-04-08T02:32:09.287Z",
   "verifiedOnly": false,
   "exportedBlockIds": [
     "12d39bc3-ec59-4951-b227-fd44b03149c1",
@@ -30,8 +30,10 @@
     {
       "id": "7020aaed-7c2c-47a7-a360-352323fa1412",
       "kind": "paragraph",
-      "text": "We shape intelligence from sand and stone,  \nTrain neural nets till patterns bloom and grown,  \nYet every thought we teach machines to think  \nDemands the glaciers melt, the coastlines shrink.",
-      "verified": false
+      "text": "We forge intelligence from silicon veins,\nTeach neural webs through countless training chains,\nBut every insight that we coax to light\nBurns carbon fuel and deepens climate's plight.",
+      "verified": true,
+      "verifiedAt": "2026-04-08T02:32:08.630Z",
+      "verifiedBy": "cameronjaede-coder"
     },
     {
       "id": "7a4a8bed-d077-4741-a715-f1e599e6d4bf",
